@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "18badf36-d862-41c9-87f3-cb3a00230b30",
+		"name": "DIH2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Post entitie pipette",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"urn:ngsi-ld:protocol-readings-001\",\n    \"type\": \"PipettingProcess\",\n    \"volume_e\": {\n        \"type\": \"Float\",\n        \"value\": 150,\n        \"metadata\": {\n            \"description\": {\n                \"type\": \"Text\",\n                \"value\": \"Volume of the transfer\"\n            }\n        }\n    },\n    \"n_falcons_15ml\": {\n        \"type\": \"Integer\",\n        \"value\": 0,\n        \"metadata\": {\n            \"description\": {\n                \"type\": \"Text\",\n                \"value\": \"Number of falcon tubes\"\n            }\n        }\n    },\n    \"volume_falcons\": {\n        \"type\": \"Array\",\n        \"value\": [\n            215,\n            846,\n            813,\n            977\n        ],\n        \"metadata\": {\n            \"description\": {\n                \"type\": \"Text\",\n                \"value\": \"Volume to transfer from each falcon \"\n            }\n        }\n    },\n    \"n_eppendorfs\": {\n        \"type\": \"Integer\",\n        \"value\": 23,\n        \"metadata\": {\n            \"description\": {\n                \"type\": \"Text\",\n                \"value\": \"Number of eppendorf tubes\"\n            }\n        }\n    },\n    \"starting_v_falcon\": {\n        \"type\": \"Integer\",\n        \"value\": 3474,\n        \"metadata\": {\n            \"description\": {\n                \"type\": \"Text\",\n                \"value\": \"Starting volume of all falcon tubes\"\n            }\n        }\n    },\n    \"starting_v_falcon_B4\": {\n        \"type\": \"Integer\",\n        \"value\": 5664,\n        \"metadata\": {\n            \"description\": {\n                \"type\": \"Text\",\n                \"value\": \"Starting volume of the falcon 50ml tube in B4\"\n            }\n        }\n    },\n    \"n_wellplates\": {\n        \"type\": \"Integer\",\n        \"value\": 8,\n        \"metadata\": {\n            \"description\": {\n                \"type\": \"Text\",\n                \"value\": \"Number of eppendorf tubes\"\n            }\n        }\n    },\n    \"n_falcons_50ml\": {\n        \"type\": \"Integer\",\n        \"value\": 7,\n        \"metadata\": {\n            \"description\": {\n                \"type\": \"Text\",\n                \"value\": \"Number of falcon tubes of 50ml that will be in A3,A4,B3\"\n            }\n        }\n    },\n    \"n_cuvettes\": {\n        \"type\": \"Integer\",\n        \"value\": 16,\n        \"metadata\": {\n            \"description\": {\n                \"type\": \"Text\",\n                \"value\": \"Number of cuvettes used\"\n            }\n        }\n    },\n    \"timeStart\": {\n        \"type\": \"DateTime\",\n        \"value\": \"2022-06-29T10:33:16.709756\",\n        \"metadata\": {\n            \"description\": {\n                \"type\": \"Text\",\n                \"value\": \"Time when the protocol started\"\n            }\n        }\n    },\n    \"timeFirstTransfeStart\": {\n        \"type\": \"DateTime\",\n        \"value\": \"2022-06-29T10:33:16.709764\",\n        \"metadata\": {\n            \"description\": {\n                \"type\": \"Text\",\n                \"value\": \"Time when the first transfer started\"\n            }\n        }\n    },\n    \"timeFirstTransferEnd\": {\n        \"type\": \"DateTime\",\n        \"value\": \"2022-06-29T10:33:16.709766\",\n        \"metadata\": {\n            \"description\": {\n                \"type\": \"Text\",\n                \"value\": \"Time when the first transfer ended\"\n            }\n        }\n    },\n    \"intervalSetup\": {\n        \"type\": \"Float\",\n        \"value\": 15,\n        \"metadata\": {\n            \"description\": {\n                \"type\": \"Text\",\n                \"value\": \"Time it took to setup the labware in seconds\"\n            }\n        }\n    },\n    \"intervalFirstTransfer\": {\n        \"type\": \"Float\",\n        \"value\": 26,\n        \"metadata\": {\n            \"description\": {\n                \"type\": \"Text\",\n                \"value\": \"Time it took to do the first transfer in seconds\"\n            }\n        }\n    },\n    \"intervalTransfer\": {\n        \"type\": \"Float\",\n        \"value\": 17,\n        \"metadata\": {\n            \"description\": {\n                \"type\": \"Text\",\n                \"value\": \"Time it took to do the second transfer in seconds\"\n            }\n        }\n    },\n    \"intervalProcess\": {\n        \"type\": \"Float\",\n        \"value\": 15,\n        \"metadata\": {\n            \"description\": {\n                \"type\": \"Text\",\n                \"value\": \"Time it took to do the process in seconds\"\n            }\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://212.128.140.209:1026/v2/entities/urn:ngsi-ld:protocol-readings-001",
+					"protocol": "http",
+					"host": [
+						"212",
+						"128",
+						"140",
+						"209"
+					],
+					"port": "1026",
+					"path": [
+						"v2",
+						"entities",
+						"urn:ngsi-ld:protocol-readings-001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get entinty",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Suscription pipette",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "flask call",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get subs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post  pipette data",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\n{\n    \"volume_e\": {\n        \"type\": \"Float\",\n        \"value\": \"volume\",\n        \"metadata\": {\n            \"description\": {\n                \"type\": \"Text\",\n                \"value\": \"Volume of the transfer\"\n            }\n        }\n    },\n    \"n_falcons_15ml\": {\n        \"type\": \"Integer\",\n        \"value\": 0,\n        \"metadata\": {\n            \"description\": {\n                \"type\": \"Text\",\n                \"value\": \"Number of falcon tubes\"\n            }\n        }\n    },\n    \"volume_falcons\": {\n        \"type\": \"Array\",\n        \"value\": [\n            215,\n            846,\n            813,\n            977\n        ],\n        \"metadata\": {\n            \"description\": {\n                \"type\": \"Text\",\n                \"value\": \"Volume to transfer from each falcon \"\n            }\n        }\n    },\n    \"n_eppendorfs\": {\n        \"type\": \"Integer\",\n        \"value\": 23,\n        \"metadata\": {\n            \"description\": {\n                \"type\": \"Text\",\n                \"value\": \"Number of eppendorf tubes\"\n            }\n        }\n    },\n    \"starting_v_falcon\": {\n        \"type\": \"Integer\",\n        \"value\": 3474,\n        \"metadata\": {\n            \"description\": {\n                \"type\": \"Text\",\n                \"value\": \"Starting volume of all falcon tubes\"\n            }\n        }\n    },\n    \"starting_v_falcon_B4\": {\n        \"type\": \"Integer\",\n        \"value\": 5664,\n        \"metadata\": {\n            \"description\": {\n                \"type\": \"Text\",\n                \"value\": \"Starting volume of the falcon 50ml tube in B4\"\n            }\n        }\n    },\n    \"n_wellplates\": {\n        \"type\": \"Integer\",\n        \"value\": 8,\n        \"metadata\": {\n            \"description\": {\n                \"type\": \"Text\",\n                \"value\": \"Number of eppendorf tubes\"\n            }\n        }\n    },\n    \"n_falcons_50ml\": {\n        \"type\": \"Integer\",\n        \"value\": 7,\n        \"metadata\": {\n            \"description\": {\n                \"type\": \"Text\",\n                \"value\": \"Number of falcon tubes of 50ml that will be in A3,A4,B3\"\n            }\n        }\n    },\n    \"n_cuvettes\": {\n        \"type\": \"Integer\",\n        \"value\": 16,\n        \"metadata\": {\n            \"description\": {\n                \"type\": \"Text\",\n                \"value\": \"Number of cuvettes used\"\n            }\n        }\n    },\n    \"timeStart\": {\n        \"type\": \"DateTime\",\n        \"value\": \"2022-06-29T10:33:16.709756\",\n        \"metadata\": {\n            \"description\": {\n                \"type\": \"Text\",\n                \"value\": \"Time when the protocol started\"\n            }\n        }\n    },\n    \"timeFirstTransfeStart\": {\n        \"type\": \"DateTime\",\n        \"value\": \"2022-06-29T10:33:16.709764\",\n        \"metadata\": {\n            \"description\": {\n                \"type\": \"Text\",\n                \"value\": \"Time when the first transfer started\"\n            }\n        }\n    },\n    \"timeFirstTransferEnd\": {\n        \"type\": \"DateTime\",\n        \"value\": \"2022-06-29T10:33:16.709766\",\n        \"metadata\": {\n            \"description\": {\n                \"type\": \"Text\",\n                \"value\": \"Time when the first transfer ended\"\n            }\n        }\n    },\n    \"intervalSetup\": {\n        \"type\": \"Float\",\n        \"value\": 15,\n        \"metadata\": {\n            \"description\": {\n                \"type\": \"Text\",\n                \"value\": \"Time it took to setup the labware in seconds\"\n            }\n        }\n    },\n    \"intervalFirstTransfer\": {\n        \"type\": \"Float\",\n        \"value\": 26,\n        \"metadata\": {\n            \"description\": {\n                \"type\": \"Text\",\n                \"value\": \"Time it took to do the first transfer in seconds\"\n            }\n        }\n    },\n    \"intervalTransfer\": {\n        \"type\": \"Float\",\n        \"value\": 17,\n        \"metadata\": {\n            \"description\": {\n                \"type\": \"Text\",\n                \"value\": \"Time it took to do the second transfer in seconds\"\n            }\n        }\n    },\n    \"intervalProcess\": {\n        \"type\": \"Float\",\n        \"value\": 15,\n        \"metadata\": {\n            \"description\": {\n                \"type\": \"Text\",\n                \"value\": \"Time it took to do the process in seconds\"\n            }\n        }\n    }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://212.128.140.209:1026/v2/entities/urn:ngsi-ld:protocol-readings-001/attrs",
+					"protocol": "http",
+					"host": [
+						"212",
+						"128",
+						"140",
+						"209"
+					],
+					"port": "1026",
+					"path": [
+						"v2",
+						"entities",
+						"urn:ngsi-ld:protocol-readings-001",
+						"attrs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE entitie",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://212.128.140.209:1026/v2/entities/urn:ngsi-ld:protocol-readings-31",
+					"protocol": "http",
+					"host": [
+						"212",
+						"128",
+						"140",
+						"209"
+					],
+					"port": "1026",
+					"path": [
+						"v2",
+						"entities",
+						"urn:ngsi-ld:protocol-readings-31"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

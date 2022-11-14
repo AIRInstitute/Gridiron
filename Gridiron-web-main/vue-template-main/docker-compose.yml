@@ -1,0 +1,17 @@
+version: '3.5'
+services:
+  frontend:
+      image: frontend
+      restart: always
+      # build:
+      #   context: ./
+      hostname: frontend
+      # depends_on:
+      #   - backend
+      expose:
+        - "2727"
+      ports:
+        - "2727:2727"
+
+      environment:
+        - PORT=2727

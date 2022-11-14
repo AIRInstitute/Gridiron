@@ -230,6 +230,46 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "07 - Protocol End Pipette",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "fiware-service",
+						"value": "openiot",
+						"type": "text"
+					},
+					{
+						"key": "fiware-servicepath",
+						"value": "/",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"description\": \"A subscription to historify info agent\",\n  \"subject\": {\n    \"entities\": [\n      {\n        \"idPattern\":\"urn:ngsi-ld:pipetteActuator\",\n        \"type\": \"pipette\"\n      }\n    ],\n    \"condition\": {\n      \"attrs\": [\n        \"timeFirstTransfeStart\",\n        \"timeFirstTransferEnd\"\n      ]\n    }\n  },\n  \"notification\": {\n    \"http\": {\n      \"url\": \"http://{{hostNotifications}}:{{portNotifications}}/api/v1/notifications/resultPipette\"\n    },\n    \"attrs\": [\n        \"volume_e\",\n        \"n_falcons_15ml\",\n        \"volume_falcons\",\n        \"n_eppendorfs\",\n        \"starting_v_falcon\",\n        \"starting_v_falcon_B4\",\n        \"n_wellplates\",\n        \"n_falcons_50ml\",\n        \"n_cuvettes\",\n        \"timeStart\",\n        \"timeFirstTransfeStart\",\n        \"timeFirstTransferEnd\",\n        \"intervalSetup\",\n        \"intervalFirstTransfer\",\n        \"intervalTransfer\",\n        \"intervalProcess\",\n        \"protocol\"\n    ]\n  },\n  \"expires\": \"2040-01-01T14:00:00.00Z\",\n  \"throttling\": 5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{hostOrion}}:{{portOrion}}/v2/subscriptions",
+					"protocol": "http",
+					"host": [
+						"{{hostOrion}}"
+					],
+					"port": "{{portOrion}}",
+					"path": [
+						"v2",
+						"subscriptions"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

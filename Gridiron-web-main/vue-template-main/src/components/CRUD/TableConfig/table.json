@@ -1,0 +1,36 @@
+{
+	"table_data": [
+		{
+			"data": {
+				"text": "Pepe",
+				"email": "email@gmail.com",
+				"number": "10",
+				"pass": "****",
+				"date": "1995-02-06",
+				"file": "asd.txt",
+				"range": "50",
+				"select": "bike",
+				"color": "#ffffff",
+				"check": ["c","b"],
+				"radio": "tele"
+			},
+			"id": "1"
+		},
+		{
+			"data": {
+				"text": "Juan",
+				"email": "email@gmail.com",
+				"number": "3",
+				"pass": "****",
+				"date": "1995-02-06",
+				"file": "asd.txt",
+				"range": "90",
+				"select": "car",
+				"color": "#ff0000",
+				"check": ["b"],
+				"radio": "pan"
+			},
+			"id": "2"
+		}
+	]
+}

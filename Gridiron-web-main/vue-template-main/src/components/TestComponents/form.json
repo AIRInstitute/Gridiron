@@ -1,0 +1,90 @@
+{
+	"dynamicForm": {
+		"input_text_0": {
+			"type": "text",
+			"name": "Text",
+			"placeholder": "asd",
+			"maxlength": 5,
+			"id": "input_text_0",
+			"invalid_chars": [
+				"a",
+				"b"
+			]
+		},
+		"input_email_0": {
+			"type": "email",
+			"name": "Email",
+			"placeholder": "email",
+			"id": "input_email_0"
+		},
+		"input_number_0": {
+			"type": "number",
+			"name": "Number",
+			"placeholder": "number",
+			"step": 0.02,
+			"max": "12",
+			"min": "0",
+			"id": "input_number_0"
+		},
+		"input_pass_0": {
+			"type": "password",
+			"name": "Pass",
+			"placeholder": "****",
+			"id": "input_pass_0"
+		},
+		"input_date_0": {
+			"type": "date",
+			"name": "Fecha",
+			"id": "input_date_0"
+		},
+		"input_file_0": {
+			"type": "file",
+			"name": "File",
+			"id": "input_file_0"
+		},
+		"input_range_0": {
+			"type": "range",
+			"name": "Value",
+			"value": "90",
+			"min": 0,
+			"max": 100,
+			"id": "input_range_0"
+		},
+		"input_selector_0": {
+			"type": "selector",
+			"name": "Select one",
+			"id": "input_selector_0",
+			"options": [
+				"car",
+				"bike",
+				"plane"
+			]
+		},
+		"input_color_0": {
+			"type": "color",
+			"name": "Color",
+			"id": "input_color_0"
+		},
+		"input_check_0": {
+			"type": "checkbox",
+			"name": "Check",
+			"id": "input_check_0",
+			"options": [
+				"a",
+				"c",
+				"b",
+				"d"
+			]
+		},
+		"input_radio_0": {
+			"type": "radio",
+			"name": "radio",
+			"id": "input_radio_0",
+			"options": [
+				"tele",
+				"pan",
+				"arroz"
+			]
+		}
+	}
+}

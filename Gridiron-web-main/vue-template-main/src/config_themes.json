@@ -1,0 +1,14 @@
+{
+    "projectName": "Gridiron",
+    "projectSubtitle": "",
+
+    "primaryColor": "#6caecf",
+    "secondaryColor": "green",
+
+    "primaryFont": "'Helvetica';",
+    "secundaryFont": "arial",
+
+    "footerCopyRight": "Copyright 2022 | AIR INSTITUTE",
+
+    "api_url": "https://deepvaluemap.ddns.net/api"
+}
