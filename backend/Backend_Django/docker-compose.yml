@@ -1,0 +1,118 @@
+# version: '3.8'
+# services:
+#   db:
+#     image: postgres:14.1-alpine
+#     restart: always
+#     environment:
+#       - POSTGRES_USER=postgres
+#       - POSTGRES_PASSWORD=postgres
+#     ports:
+#       - '5432:5432'
+#     volumes: 
+#       - db:/var/lib/postgresql/data
+# volumes:
+#   db:
+#     driver: local
+
+version: '3'
+
+services:
+
+  orion:
+    image: fiware/orion:${ORION_VERSION:-2.0.0}
+    ports:
+      - "1026:1026"
+    command: -logLevel DEBUG -noCache -dbhost mongo
+    depends_on:
+      - mongo
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://0.0.0.0:1026/version"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
+
+  quantumleap:
+    image: ${QL_IMAGE:-orchestracities/quantumleap}
+    ports:
+      - "8668:8668"
+    depends_on:
+      - mongo
+      - orion
+      - crate
+    environment:
+      - CRATE_HOST=${CRATE_HOST:-crate}
+      - USE_GEOCODING=True
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - LOGLEVEL=DEBUG
+
+  mongo:
+    image: mongo:3.2.19
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodata:/data/db
+
+  crate:
+    image: crate:${CRATE_VERSION:-4.1.4}
+    command: crate -Cauth.host_based.enabled=false
+      -Ccluster.name=democluster -Chttp.cors.enabled=true -Chttp.cors.allow-origin="*"
+    ports:
+      # Admin UI
+      - "4200:4200"
+      # Transport protocol
+      - "4300:4300"
+    volumes:
+      - cratedata:/data
+
+  # grafana:
+  #   image: grafana/grafana
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - crate
+  iot-agent:
+    image: fiware/iotagent-json:latest
+    container_name: fiware-iot-agent
+    depends_on:
+      - orion
+      - mongo
+    expose:
+      - "4041"
+      - "2724"
+    ports:
+      - "4041:4041" # localhost:4041
+      - "2724:7896" # localhost:7896
+    environment:
+      - IOTA_CB_HOST=212.128.140.219 # name of the context broker to update context
+      - IOTA_CB_PORT=1026 # port the context broker listens on to update context
+      - IOTA_NORTH_PORT=4041
+      - IOTA_REGISTRY_TYPE=mongodb #Whether to hold IoT device info in memory or in a database
+      - IOTA_LOG_LEVEL=DEBUG # The log level of the IoT Agent
+      - IOTA_DEFAULT_EXPRESSION_LANGUAGE=jexl
+      - IOTA_TIMESTAMP=true # Supply timestamp information with each measurement
+      - IOTA_CB_NGSI_VERSION=v2 # use NGSIv2 when sending updates for active attributes
+      - IOTA_AUTOCAST=true # Ensure Ultralight number values are read as numbers not strings
+      - IOTA_MONGO_HOST=212.128.140.219 # The host name of MongoDB
+      - IOTA_MONGO_PORT=27017 # The port mongoDB is listening on
+      - IOTA_MONGO_DB=iotagentjson # The name of the database used in mongoDB
+      - IOTA_HTTP_PORT=7896 # The port used for device traffic over HTTP
+      - IOTA_PROVIDER_URL=http://iot-agent:4041
+      - IOTA_DEFAULT_RESOURCE=/iot/json
+    healthcheck:
+      interval: 5s
+
+  redis:
+    image: redis:${REDIS_VERSION:-4}
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
+
+volumes:
+  mongodata:
+  cratedata:
+  redisdata:
+
+networks:
+    default:

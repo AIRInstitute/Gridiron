@@ -1,0 +1,17 @@
+version: '3.5'
+services:
+  backend-notifications:
+      image: notifications
+      restart: always
+      # build:
+      #   context: ./
+      hostname: backend-notifications
+      # depends_on:
+      #   - backend
+      expose:
+        - "8678"
+      ports:
+        - "8678:8678"
+
+      environment:
+        - PORT=8678

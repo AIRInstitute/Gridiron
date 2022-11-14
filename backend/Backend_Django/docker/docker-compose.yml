@@ -1,0 +1,11 @@
+version: '3.5'
+services:
+    ##########################
+    ##### Backend Django #####
+    ##########################
+    backenddjango:
+      image: backend-django
+      expose:
+      - "2726"
+      ports:
+      - "2726:2726"

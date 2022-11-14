@@ -1,0 +1,17 @@
+version: '3.5'
+services:
+  backendai:
+      image: flaskmicroscopio
+      restart: always
+      # build:
+      #   context: ./
+      hostname: flaskmicroscopio
+      # depends_on:
+      #   - backend
+      expose:
+        - "5000"
+      ports:
+        - "5000:5000"
+
+      # environment:
+      #   - PORT=8678

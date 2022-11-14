@@ -1,0 +1,22 @@
+Como lanzarlo en local sin usar docker:
+
+primero crear un entorno virtual con el comando(en windows, para lanzarlo en unix seria con python o python3):
+py -m venv venv
+
+ahora activamos el entorno virtual con el comando(este en concreto es para lanzarlo en windows desde powershell):
+./venv/Scripts/Activate.ps1
+
+para salir del entorno solo tenemos que escribir:
+deactivate
+
+para no tener que poner ese pedazo de comando cada vez que queramos entrar en nuestro entorno virtual, vamos a crear un alias con el comando:
+Set-Alias avenv ./venv/Scripts/Activate.ps1
+(Active.ps1 es para powershell)
+
+Ahora solo necesitamos escribir avenv para entrar y deactivate para salir
+
+una vez dentro de nuestro entorno vamos a instalar los requirements del proyecto con el comando:
+pip install -r requirements.txt
+
+Ahora para lanzar el proyecto solo tenemos que escribir el código:
+py src/__init__.py

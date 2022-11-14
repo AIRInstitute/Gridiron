@@ -1,0 +1,17 @@
+version: '3.5'
+services:
+  backendai:
+      image: backendai
+      restart: always
+      # build:
+      #   context: ./
+      hostname: backendai
+      # depends_on:
+      #   - backend
+      expose:
+        - "2725"
+      ports:
+        - "2725:2725"
+
+      # environment:
+      #   - PORT=8678

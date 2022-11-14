@@ -1,0 +1,179 @@
+{
+    "id": "urn:ngsi-ld:protocol-readings-001",
+    "type": "PipettingProcess",
+    "intervalFirstTransfer": {
+        "type": "Float",
+        "value": 17,
+        "metadata": {
+            "description": {
+                "type": "Text",
+                "value": "Time it took to do the first transfer in seconds"
+            }
+        }
+    },
+    "intervalProcess": {
+        "type": "Float",
+        "value": 13,
+        "metadata": {
+            "description": {
+                "type": "Text",
+                "value": "Time it took to do the process in seconds"
+            }
+        }
+    },
+    "intervalSetup": {
+        "type": "Float",
+        "value": 29,
+        "metadata": {
+            "description": {
+                "type": "Text",
+                "value": "Time it took to setup the labware in seconds"
+            }
+        }
+    },
+    "intervalTransfer": {
+        "type": "Float",
+        "value": 12,
+        "metadata": {
+            "description": {
+                "type": "Text",
+                "value": "Time it took to do the second transfer in seconds"
+            }
+        }
+    },
+    "n_cuvettes": {
+        "type": "Integer",
+        "value": 8,
+        "metadata": {
+            "description": {
+                "type": "Text",
+                "value": "Number of cuvettes used"
+            }
+        }
+    },
+    "n_eppendorfs": {
+        "type": "Integer",
+        "value": 2,
+        "metadata": {
+            "description": {
+                "type": "Text",
+                "value": "Number of eppendorf tubes"
+            }
+        }
+    },
+    "n_falcons_15ml": {
+        "type": "Integer",
+        "value": 3,
+        "metadata": {
+            "description": {
+                "type": "Text",
+                "value": "Number of falcon tubes"
+            }
+        }
+    },
+    "n_falcons_50ml": {
+        "type": "Integer",
+        "value": 7,
+        "metadata": {
+            "description": {
+                "type": "Text",
+                "value": "Number of falcon tubes of 50ml that will be in A3,A4,B3"
+            }
+        }
+    },
+    "n_wellplates": {
+        "type": "Integer",
+        "value": 22,
+        "metadata": {
+            "description": {
+                "type": "Text",
+                "value": "Number of eppendorf tubes"
+            }
+        }
+    },
+    "starting_v_falcon": {
+        "type": "Integer",
+        "value": 2465,
+        "metadata": {
+            "description": {
+                "type": "Text",
+                "value": "Starting volume of all falcon tubes"
+            }
+        }
+    },
+    "starting_v_falcon_B4": {
+        "type": "Integer",
+        "value": 9544,
+        "metadata": {
+            "description": {
+                "type": "Text",
+                "value": "Starting volume of the falcon 50ml tube in B4"
+            }
+        }
+    },
+    "timeFirstTransfeStart": {
+        "type": "DateTime",
+        "value": "2022-06-30T14:26:06.038Z",
+        "metadata": {
+            "description": {
+                "type": "Text",
+                "value": "Time when the first transfer started"
+            }
+        }
+    },
+    "timeFirstTransferEnd": {
+        "type": "DateTime",
+        "value": "2022-06-30T14:26:06.038Z",
+        "metadata": {
+            "description": {
+                "type": "Text",
+                "value": "Time when the first transfer ended"
+            }
+        }
+    },
+    "timeStart": {
+        "type": "DateTime",
+        "value": "2022-06-30T14:26:06.038Z",
+        "metadata": {
+            "description": {
+                "type": "Text",
+                "value": "Time when the protocol started"
+            }
+        }
+    },
+    "volume_e": {
+        "type": "Float",
+        "value": 431,
+        "metadata": {
+            "description": {
+                "type": "Text",
+                "value": "Volume of the transfer"
+            }
+        }
+    },
+    "volume_falcons": {
+        "type": "Array",
+        "value": [
+            250,
+            670,
+            667,
+            509
+        ],
+        "metadata": {
+            "description": {
+                "type": "Text",
+                "value": "Volume to transfer from each falcon "
+            }
+        }
+    },
+    "protocol":{
+        "type":"Integer",
+        "value":1,
+        "metadata":{
+            "description":{
+                "type":"Text",
+                "value":"Number of protocol executed"
+            }
+        }
+    }
+}

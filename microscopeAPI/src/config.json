@@ -1,0 +1,27 @@
+{
+    "flask_server":{
+        "host":"0.0.0.0",
+        "port":5000,
+        "debug":true
+    },
+    "orion":{
+        "host":"212.128.140.209",
+        "port":1026
+    },
+    "pipette":{
+        "hostname" : "192.168.2.110",
+        "port" : 22,
+        "username" : "root",
+        "key" : "./src/keys/ot2_ssh_key",
+        "command" : "opentrons_execute /data/test_pipette.py" 
+    },
+    "ot2_params":{
+        "protocol_1":"protocol_1.py",
+        "protocol_2":"protocol_2.py",
+        "protocol_3":"protocol_3.py",
+        "protocol_4":"protocol_4.py",
+        "protocol_5":"protocol_5.py",
+        "test":"test_pipette.py"
+    }
+}
+
