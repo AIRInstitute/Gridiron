@@ -2,7 +2,7 @@
 # Flask setup
 #------------------------------------------
 
-from flask import Flask, request
+from flask import Flask, request, make_response, jsonify
 from flask_cors import CORS
 import requests
 import json
@@ -23,7 +23,7 @@ app = Flask(__name__)
 #------------------------------------------
 # Load config
 #------------------------------------------
-CONFIGURATION_FILE = "./Gridiron-web-main/flask_app/config.json"
+CONFIGURATION_FILE = "./config.json"
 CORS(app, resources={r'/*': {'origins': '*'}})
 
 with open(CONFIGURATION_FILE) as json_file:
@@ -53,38 +53,41 @@ def start_protocol():
     # if(specifications["protocol"] == "test_pipette"):
     if 'test_pipette' in specifications:
         protocol = "test_pipette.py"
-        file = open("./Gridiron-web-main/flask_app/protocols/test_pipette.py")
+        file = open("./protocols/test_pipette.py")
         data = file.readlines()
         # Get VOLUME
         data[-1] = "VOLUME = "+str(specifications["volume"])+"\n"
-        file = open("./Gridiron-web-main/flask_app/protocols/test_pipette.py", "w")
+        file = open("./protocols/test_pipette.py", "w")
         file.writelines(data)
         file.close()
 
     # if(specifications["protocol"] == "protocol_1"):
     if 'protocol1' in specifications:
+        print('llego aqui 1')
         protocol = "protocol_1.py"
-        file = open("./Gridiron-web-main/flask_app/protocols/protocol_1.py")
+        file = open("./protocols/protocol_1.py")
         data = file.readlines()
+        print('llego aqui 2')
 
         # N_EPPENDORFS = 24
         # N_FALCONS_15ML = 4
         # STARTING_FALCON_VOLUME = 5000
         # VOLUME_NEEDED = [500,340,200,420]
+        print(specifications)
 
         data[-1] = "N_EPPENDORFS = "+ str(specifications["protocol1"]["n_eppendorfs"]) +"\n"
         data[-2] = "N_FALCONS_15ML = "+ str(specifications["protocol1"]["n_falcons_15ml"]) +"\n"
-        data[-3] = "STARTING_FALCON_VOLUME = "+ str(specifications["protocol1"]["starting_v_falcon_B4"]) +"\n"
-        data[-4] = "VOLUME_NEEDED = "+ str(specifications["protocol1"]["falcon_array"]) +"\n"
+        data[-3] = "STARTING_FALCON_VOLUME = "+ str(specifications["protocol1"]["starting_v_falcon"]) +"\n"
+        data[-4] = "VOLUME_NEEDED = "+ str(specifications["protocol1"]["volume_falcons"]) +"\n"
 
-        file = open("./Gridiron-web-main/flask_app/protocols/protocol_1.py", "w")
+        file = open("./protocols/protocol_1.py", "w")
         file.writelines(data)
         file.close()
 
     # if(specifications["protocol"] == "protocol_2"):
     if 'protocol2' in specifications:
         protocol = "protocol_2.py"
-        file = open("./Gridiron-web-main/flask_app/protocols/protocol_2.py")
+        file = open("./protocols/protocol_2.py")
         data = file.readlines()
 
         # N_EPPENDORFS = 24
@@ -93,14 +96,14 @@ def start_protocol():
         data[-1] = "N_EPPENDORFS = "+ str(specifications["protocol2"]["n_eppendorfs"]) +"\n"
         data[-2] = "STARTING_V_FALCON_B4 = "+ str(specifications["protocol2"]["starting_v_falcon_B4"]) +"\n"
 
-        file = open("./Gridiron-web-main/flask_app/protocols/protocol_2.py", "w")
+        file = open("./protocols/protocol_2.py", "w")
         file.writelines(data)
         file.close()
     
     # if(specifications["protocol"] == "protocol_3"):
     if 'protocol3' in specifications:
         protocol = "protocol_3.py"
-        file = open("./Gridiron-web-main/flask_app/protocols/protocol_3.py")
+        file = open("./protocols/protocol_3.py")
         data = file.readlines()
 
         # N_EPPENDORFS = 24
@@ -108,31 +111,31 @@ def start_protocol():
         # VOLUME_FALCONS = [25000,25000,25000]
 
         data[-1] = "N_EPPENDORFS = "+ str(specifications["protocol3"]["n_eppendorfs"]) +"\n"
-        data[-2] = "VOLUME_FALCONS = "+ str(specifications["protocol3"]["volume_falcons"]) +"\n"
+        # data[-2] = "VOLUME_FALCONS = "+ str(specifications["protocol3"]["volume_falcons"]) +"\n"
         data[-3] = "N_WELL_RACKS = "+ str(specifications["protocol3"]["n_well_racks"]) +"\n"
 
-        file = open("./Gridiron-web-main/flask_app/protocols/protocol_3.py", "w")
+        file = open("./protocols/protocol_3.py", "w")
         file.writelines(data)
         file.close()
     
     # if(specifications["protocol"] == "protocol_4"):
     if 'protocol4' in specifications:
         protocol = "protocol_4.py"
-        file = open("./Gridiron-web-main/flask_app/protocols/protocol_4.py")
+        file = open("./protocols/protocol_4.py")
         data = file.readlines()
 
         # N_EPPENDORFS = 24
 
-        data[-1] = "N_EPPENDORFS = "+ str(specifications["protocol4"]["n_eppendorfs"]) +"\n"
+        data[-1] = "N_EPPENDORFS = "+ str(specifications["protocol4"]["n_cuvettes"]) +"\n"
 
-        file = open("./Gridiron-web-main/flask_app/protocols/protocol_4.py", "w")
+        file = open("./protocols/protocol_4.py", "w")
         file.writelines(data)
         file.close()
 
     # if(specifications["protocol"] == "protocol_5"):
     if 'protocol5' in specifications:
         protocol = "protocol_5.py"
-        file = open("./Gridiron-web-main/flask_app/protocols/protocol_5.py")
+        file = open("./protocols/protocol_5.py")
         data = file.readlines()
 
         # N_CUVETTES = 24
@@ -140,15 +143,18 @@ def start_protocol():
         data[-1] = "N_CUVETTES = "+ str(specifications["protocol5"]["n_cuvettes"]) +"\n"
         data[-2] = "N_WELL_RACKS = "+ str(specifications["protocol5"]["n_well_racks"]) +"\n"
 
-        file = open("./Gridiron-web-main/flask_app/protocols/protocol_5.py", "w")
+        file = open("./protocols/protocol_5.py", "w")
         file.writelines(data)
         file.close()        
         
     #--------------------------------------------
     # SCP connection for copying protocol file into robot
     #-------------------------------------------- 
+    print('llego aqui 3')
+    print("scp -i "+KEY+" ./protocols/"+protocol+" "+USERNAME+"@"+PIPETTE_HOST+":/data/"+protocol)
     try:
-        result = subprocess.run("scp -i "+KEY+" ./flask_app/protocols/"+protocol+" "+USERNAME+"@"+PIPETTE_HOST+":/data/"+protocol, shell=True)
+        print('entro en try scp 1')
+        result = subprocess.run("scp -i "+KEY+" ./protocols/"+protocol+" "+USERNAME+"@"+PIPETTE_HOST+":/data/"+protocol, shell=True)
         if(result.returncode==0):
             print("SCP connection successful")
         else:
@@ -161,9 +167,11 @@ def start_protocol():
     # SSH connection for executing protocol
     #--------------------------------------------
     try:
+        print('llego aqui 4')
         ssh = paramiko.SSHClient()
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         ssh.connect(PIPETTE_HOST, port=PIPETTE_PORT, username=USERNAME, key_filename=KEY)
+        print('llego aqui 5')
 
         stdin, stdout, stderr = ssh.exec_command("opentrons_execute /data/"+protocol,get_pty=True)        # Non blocking call
         exit_status = stdout.channel.recv_exit_status()          # Blocking call,needs to wait for completition
@@ -173,11 +181,12 @@ def start_protocol():
         if exit_status == 0:                                    
             print("Pipetting operation finished. Reading results")
             try: 
-                result = subprocess.run("scp -i "+KEY+" "+USERNAME+"@"+PIPETTE_HOST+":/root/json_data.json ./flask_app/json_data.json", shell=True)
+                result = subprocess.run("scp -i "+KEY+" "+USERNAME+"@"+PIPETTE_HOST+":/root/json_data.json ./json_data.json", shell=True)
                 if(result.returncode==0):
-                    with open('./flask_app/json_data.json') as json_file:
+                    with open('./json_data.json') as json_file:
                         data = json.load(json_file)
                     print("SCP connection successful")
+                    print(data)
                     return "Operation finished"
                 else:
                     print("SCP connection error. Could not copy results")
@@ -191,6 +200,8 @@ def start_protocol():
         print(e)
         ssh.close()
 
+    return make_response(jsonify({}, 200))
+
 #------------------------------------------
 # Test route
 #------------------------------------------
@@ -200,16 +211,16 @@ def test_write():
     specifications = request.get_json()
 
     if(specifications["protocol"] == "test_pipette"):
-        file = open("./Gridiron-web-main/flask_app/protocols/test_pipette.py")
+        file = open("./protocols/test_pipette.py")
         data = file.readlines()
         # Get VOLUME
         data[-1] = "VOLUME = "+str(specifications["volume"])+"\n"
-        file = open("./Gridiron-web-main/flask_app/protocols/test_pipette.py", "w")
+        file = open("./protocols/test_pipette.py", "w")
         file.writelines(data)
         file.close()
 
     if(specifications["protocol"] == "protocol_1"):
-        file = open("./Gridiron-web-main/flask_app/protocols/protocol_1.py")
+        file = open("./protocols/protocol_1.py")
         data = file.readlines()
 
         # N_EPPENDORFS = 24
@@ -222,12 +233,12 @@ def test_write():
         data[-3] = "STARTING_FALCON_VOLUME = "+ str(specifications["starting_v_falcon_B4"]) +"\n"
         data[-4] = "VOLUME_NEEDED = "+ str(specifications["volume_falcons"]) +"\n"
 
-        file = open("./Gridiron-web-main/flask_app/protocols/protocol_1.py", "w")
+        file = open("./protocols/protocol_1.py", "w")
         file.writelines(data)
         file.close()
 
     if(specifications["protocol"] == "protocol_2"):
-        file = open("./Gridiron-web-main/flask_app/protocols/protocol_2.py")
+        file = open("./protocols/protocol_2.py")
         data = file.readlines()
 
         # N_EPPENDORFS = 24
@@ -236,12 +247,12 @@ def test_write():
         data[-1] = "N_EPPENDORFS = "+ str(specifications["n_eppendorfs"]) +"\n"
         data[-2] = "STARTING_V_FALCON_B4 = "+ str(specifications["starting_v_falcon_B4"]) +"\n"
 
-        file = open("./Gridiron-web-main/flask_app/protocols/protocol_2.py", "w")
+        file = open("./protocols/protocol_2.py", "w")
         file.writelines(data)
         file.close()
     
     if(specifications["protocol"] == "protocol_3"):
-        file = open("./Gridiron-web-main/flask_app/protocols/protocol_3.py")
+        file = open("./protocols/protocol_3.py")
         data = file.readlines()
 
         # N_EPPENDORFS = 24
@@ -252,24 +263,24 @@ def test_write():
         data[-2] = "VOLUME_FALCONS = "+ str(specifications["volume_falcons"]) +"\n"
         data[-3] = "N_WELL_RACKS = "+ str(specifications["n_well_racks"]) +"\n"
 
-        file = open("./Gridiron-web-main/flask_app/protocols/protocol_3.py", "w")
+        file = open("./protocols/protocol_3.py", "w")
         file.writelines(data)
         file.close()
     
     if(specifications["protocol"] == "protocol_4"):
-        file = open("./Gridiron-web-main/flask_app/protocols/protocol_4.py")
+        file = open("./protocols/protocol_4.py")
         data = file.readlines()
 
         # N_EPPENDORFS = 24
 
         data[-1] = "N_EPPENDORFS = "+ str(specifications["n_eppendorfs"]) +"\n"
 
-        file = open("./Gridiron-web-main/flask_app/protocols/protocol_4.py", "w")
+        file = open("./protocols/protocol_4.py", "w")
         file.writelines(data)
         file.close()
 
     if(specifications["protocol"] == "protocol_5"):
-        file = open("./Gridiron-web-main/flask_app/protocols/protocol_5.py")
+        file = open("./protocols/protocol_5.py")
         data = file.readlines()
 
         # N_CUVETTES = 24
@@ -277,7 +288,7 @@ def test_write():
         data[-1] = "N_CUVETTES = "+ str(specifications["n_cuvettes"]) +"\n"
         data[-2] = "N_WELL_RACKS = "+ str(specifications["n_well_racks"]) +"\n"
 
-        file = open("./Gridiron-web-main/flask_app/protocols/protocol_5.py", "w")
+        file = open("./protocols/protocol_5.py", "w")
         file.writelines(data)
         file.close()
     
@@ -287,7 +298,7 @@ def test_write():
 def test():
     # protocol_file = config["ot2_params"]["test"]
     try:
-        result = subprocess.run("scp -i "+KEY+" ./Gridiron-web-main/flask_app/protocols/test_pipette.py "+USERNAME+"@"+PIPETTE_HOST+":/data/test_pipette.py", shell=True)
+        result = subprocess.run("scp -i "+KEY+" ./protocols/test_pipette.py "+USERNAME+"@"+PIPETTE_HOST+":/data/test_pipette.py", shell=True)
         print(result)
         if(result.returncode==0):
             print("SCP connection successful")
@@ -448,7 +459,7 @@ def pipetting_1():
     # SCP connection for copying protocol file into robot
     #-------------------------------------------- 
     try:
-        result = subprocess.run("scp -i "+KEY+" ./flask_app/protocols/"+protocol_file+" "+USERNAME+"@"+PIPETTE_HOST+":/data/"+protocol_file, shell=True)
+        result = subprocess.run("scp -i "+KEY+" ./protocols/"+protocol_file+" "+USERNAME+"@"+PIPETTE_HOST+":/data/"+protocol_file, shell=True)
         if(result.returncode==0):
             print("SCP connection successful")
         else:
@@ -471,9 +482,9 @@ def pipetting_1():
             print("Pipetting operation finished. Reading results")
             try: 
                 # Copying result file to local and read it
-                result = subprocess.run("scp -i "+KEY+" "+USERNAME+"@"+PIPETTE_HOST+":/root/json_data.json ./flask_app/json_data.json", shell=True)
+                result = subprocess.run("scp -i "+KEY+" "+USERNAME+"@"+PIPETTE_HOST+":/root/json_data.json ./json_data.json", shell=True)
                 if(result.returncode==0):
-                    with open('./flask_app/json_data.json') as json_file:
+                    with open('./json_data.json') as json_file:
                         data = json.load(json_file)
                       #  print(data)
 
@@ -509,7 +520,7 @@ def pipetting_2():
     # SCP connection for copying protocol file into robot
     #-------------------------------------------- 
     try:
-        result = subprocess.run("scp -i "+KEY+" ./flask_app/protocols/"+protocol_file+" "+USERNAME+"@"+PIPETTE_HOST+":/data/"+protocol_file, shell=True)
+        result = subprocess.run("scp -i "+KEY+" ./protocols/"+protocol_file+" "+USERNAME+"@"+PIPETTE_HOST+":/data/"+protocol_file, shell=True)
         if(result.returncode==0):
             print("SCP connection successful")
         else:
@@ -532,9 +543,9 @@ def pipetting_2():
             print("Pipetting operation finished. Reading results")
             try: 
                 # Copying result file to local and read it
-                result = subprocess.run("scp -i "+KEY+" "+USERNAME+"@"+PIPETTE_HOST+":/root/json_data.json ./flask_app/json_data.json", shell=True)
+                result = subprocess.run("scp -i "+KEY+" "+USERNAME+"@"+PIPETTE_HOST+":/root/json_data.json ./json_data.json", shell=True)
                 if(result.returncode==0):
-                    with open('./flask_app/json_data.json') as json_file:
+                    with open('./json_data.json') as json_file:
                         data = json.load(json_file)
                       #  print(data)
                         #--------------------------------------------
@@ -569,7 +580,7 @@ def pipetting_3():
     # SCP connection for copying protocol file into robot
     #-------------------------------------------- 
     try:
-        result = subprocess.run("scp -i "+KEY+" ./flask_app/protocols/"+protocol_file+" "+USERNAME+"@"+PIPETTE_HOST+":/data/"+protocol_file, shell=True)
+        result = subprocess.run("scp -i "+KEY+" ./protocols/"+protocol_file+" "+USERNAME+"@"+PIPETTE_HOST+":/data/"+protocol_file, shell=True)
         if(result.returncode==0):
             print("SCP connection successful")
         else:
@@ -592,9 +603,9 @@ def pipetting_3():
             print("Pipetting operation finished. Reading results")
             try: 
                 # Copying result file to local and read it
-                result = subprocess.run("scp -i "+KEY+" "+USERNAME+"@"+PIPETTE_HOST+":/root/json_data.json ./flask_app/json_data.json", shell=True)
+                result = subprocess.run("scp -i "+KEY+" "+USERNAME+"@"+PIPETTE_HOST+":/root/json_data.json ./json_data.json", shell=True)
                 if(result.returncode==0):
-                    with open('./flask_app/json_data.json') as json_file:
+                    with open('./json_data.json') as json_file:
                         data = json.load(json_file)
                       #  print(data)
 
@@ -630,7 +641,7 @@ def pipetting_4():
     # SCP connection for copying protocol file into robot
     #-------------------------------------------- 
     try:
-        result = subprocess.run("scp -i "+KEY+" ./flask_app/protocols/"+protocol_file+" "+USERNAME+"@"+PIPETTE_HOST+":/data/"+protocol_file, shell=True)
+        result = subprocess.run("scp -i "+KEY+" ./protocols/"+protocol_file+" "+USERNAME+"@"+PIPETTE_HOST+":/data/"+protocol_file, shell=True)
         if(result.returncode==0):
             print("SCP connection successful")
         else:
@@ -653,9 +664,9 @@ def pipetting_4():
             print("Pipetting operation finished. Reading results")
             try: 
                 # Copying result file to local and read it
-                result = subprocess.run("scp -i "+KEY+" "+USERNAME+"@"+PIPETTE_HOST+":/root/json_data.json ./flask_app/json_data.json", shell=True)
+                result = subprocess.run("scp -i "+KEY+" "+USERNAME+"@"+PIPETTE_HOST+":/root/json_data.json ./json_data.json", shell=True)
                 if(result.returncode==0):
-                    with open('./flask_app/json_data.json') as json_file:
+                    with open('./json_data.json') as json_file:
                         data = json.load(json_file)
                       #  print(data)
 
@@ -691,7 +702,7 @@ def pipetting_5():
     # SCP connection for copying protocol file into robot
     #-------------------------------------------- 
     try:
-        result = subprocess.run("scp -i "+KEY+" ./Gridiron-web-main/flask_app/protocols/"+protocol_file+" "+USERNAME+"@"+PIPETTE_HOST+":/data/"+protocol_file, shell=True)
+        result = subprocess.run("scp -i "+KEY+" ./protocols/"+protocol_file+" "+USERNAME+"@"+PIPETTE_HOST+":/data/"+protocol_file, shell=True)
         if(result.returncode==0):
             print("SCP connection successful")
         else:
@@ -714,9 +725,9 @@ def pipetting_5():
             print("Pipetting operation finished. Reading results")
             try: 
                 # Copying result file to local and read it
-                result = subprocess.run("scp -i "+KEY+" "+USERNAME+"@"+PIPETTE_HOST+":/root/json_data.json ./Gridiron-web-main/flask_app/json_data.json", shell=True)
+                result = subprocess.run("scp -i "+KEY+" "+USERNAME+"@"+PIPETTE_HOST+":/root/json_data.json ./json_data.json", shell=True)
                 if(result.returncode==0):
-                    with open('./Gridiron-web-main/flask_app/json_data.json') as json_file:
+                    with open('./json_data.json') as json_file:
                         data = json.load(json_file)
                       #  print(data)
                         #--------------------------------------------
@@ -736,26 +747,6 @@ def pipetting_5():
     except Exception as e:
         print(e)
         ssh.close()
-
-@app.route("/getImageNoliquid", methods=['GET'])
-def noLiquid():
-    img = Image.open("C:/Users/Bisite/Documents/GitHub/Gridiron-DIH2/Gridiron-web-main/flask_app/noLiquid.png")
-    img = img.convert('RGB')
-    data = asarray(img)
-    # print(type(data))
-    # print(data)
-    # print(data.shape)
-    return json.dumps(data.tolist())
-
-@app.route("/getImageliquid", methods=['GET'])
-def Liquid():
-    img = Image.open("/home/david/GitHub/Gridiron-web/flask_app/Trypanblue.png")
-    img = img.convert('RGB')
-    data = asarray(img)
-    # print(type(data))
-    print(data.shape)
-    # print(data)
-    return json.dumps(data.tolist())
 
 #------------------------------------------
 # Run

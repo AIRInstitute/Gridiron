@@ -12,7 +12,7 @@
         "hostname" : "192.168.2.110",
         "port" : 22,
         "username" : "root",
-        "key" : "./Gridiron-web-main/flask_app/keys/ot2_ssh_key",
+        "key" : "./keys/ot2_ssh_key",
         "command" : "opentrons_execute /data/test_pipette.py" 
     },
     "ot2_params":{

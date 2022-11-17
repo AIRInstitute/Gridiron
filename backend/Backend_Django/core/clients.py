@@ -749,6 +749,10 @@ class OrionClient(object):
             "n_cuvettes": {
                 "type": "Number",
                 "value": body['value']['n_cuvettes']
+            },
+            "n_well_racks": {
+                "type": "Number",
+                "value": body['value']['n_wellplates']
             }
 
         }

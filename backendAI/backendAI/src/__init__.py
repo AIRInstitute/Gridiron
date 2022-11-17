@@ -87,11 +87,10 @@ class GetImageWithLiquid(Resource):
         }
 
         headers = {
-            'fiware-service': 'openiot',
-            'content-type': 'application/json'
+            'fiware-service': 'openiot'
         }
 
-        responseOrion1 = request.patch(url = 'http://' + os.environ.get("ORION_HOST") + ':' + os.environ.get("ORION_PORT") + '/v2/entities/' + os.environ.get("MICROSCOPE_ENTITY_ID"),
+        responseOrion1 = requests.get(url = 'http://' + os.environ.get("ORION_HOST") + ':' + os.environ.get("ORION_PORT") + '/v2/entities/' + os.environ.get("MICROSCOPE_ENTITY_ID"),
                                         params = params,
                                         headers = headers)
         

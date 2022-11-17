@@ -1,0 +1,17 @@
+version: '3.5'
+services:
+  pipetteapi:
+      image: flaskpipette
+      restart: always
+      # build:
+      #   context: ./
+      hostname: flaskpipette
+      # depends_on:
+      #   - backend
+      expose:
+        - "8081"
+      ports:
+        - "8081:8081"
+
+      # environment:
+      #   - PORT=8678
