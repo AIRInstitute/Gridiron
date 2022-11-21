@@ -1,3 +1,11 @@
+N_WELL_RACKS = 4
+N_CUVETTES = 24
+URL = "test"
+
+
+
+
+
 from time import sleep
 from opentrons import simulate,execute,types
 import json
@@ -170,8 +178,9 @@ def run(protocol: protocol_api.ProtocolContext):
         import requests 
         # url = "http://212.128.140.209:7896/iot/json?k=4jggokgpepnvsb2uv4s40d59ov2&i=liquidHandler001"
         # url = "http://212.128.155.117:8081/test_agent"
-        url = "http://" + os.environ.get("ENDPOINT_AGENT") + ":" + os.environ.get("PORT_AGENT") + "/iot/json?k=" + os.environ.get("API_KEY") + "&i=" + os.environ.get("DEVICE_ID")
-        
+        # url = "http://" + os.environ.get("ENDPOINT_AGENT") + ":" + os.environ.get("PORT_AGENT") + "/iot/json?k=" + os.environ.get("API_KEY") + "&i=" + os.environ.get("DEVICE_ID")
+        url = URL
+
         headers = {
             'Content-Type': 'application/json',
             'fiware-services': 'openiot'
@@ -192,5 +201,5 @@ def run(protocol: protocol_api.ProtocolContext):
         #     protocol.comment("Error creating data file ")
         #     protocol.comment(e)
 
-N_WELL_RACKS = 4
-N_CUVETTES = 24
+# N_WELL_RACKS = 4
+# N_CUVETTES = 24

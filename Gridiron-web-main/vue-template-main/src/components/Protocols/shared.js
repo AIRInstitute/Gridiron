@@ -99,7 +99,6 @@ var MyShared = {
             document.getElementById("waitForProtocol").hidden = false
 
             // Wait for the protocol to finish
-            //! Se puede cambiar el tiempo de espera
             SocketioService.socket.on("resultPipette", (msg) => {
                 var data = JSON.parse(msg);
                 console.log(data);

@@ -180,7 +180,9 @@ var MyShared = {
             var xhr = new XMLHttpRequest();
             xhr.open("POST", process.env.VUE_APP_GET_IMAGE_WITH_LIQUID);
             xhr.setRequestHeader("Content-Type", "application/json");
-            
+            xhr.send(JSON.stringify({
+                'totalNumberOfCells': this.cellsNumber
+            }));
             //var url_flask = "http://192.168.2.233:5000/microscope/getAnImage"
             //var img_array
             SocketioService.socket.on("predictionWithLiquid", (msg) => {
@@ -189,13 +191,15 @@ var MyShared = {
                 //console.log("msg: ", msg);
                 var img_array_show_l = JSON.parse(msg["image"]);
                 this.cellsNumber = msg["totalNumberOfCells"];
+                this.cellsAliveNumber = msg["numberOfLifeCells"];
+                this.cellsDeadNumber = msg["cellViability"];
                 //console.log("img_array: ", img_array_show_l);
 
                 var canvasLiquid = document.getElementsByName("Liquid");
                 canvasLiquid.hidden = false
 
-                canvasLiquid.height = img_array_show.length;
-                canvasLiquid.width = img_array_show[0].length;
+                canvasLiquid.height = img_array_show_l.length;
+                canvasLiquid.width = img_array_show_l[0].length;
 
                 // Now that we have canvas to work with, we need to draw the image data into it:
                 var ctx_l = canvasLiquid.getContext("2d");
@@ -266,13 +270,7 @@ var MyShared = {
                     'totalNumberOfCells': this.cellsNumber
                 }
             };
-            var result_liquid*/
-            /*var xhr = new XMLHttpRequest();
-            xhr.open("POST", process.env.GET_IMAGE_WITH_TRYPAN, true);
-            xhr.setRequestHeader("Content-Type", "application/json");
-            xhr.send(JSON.stringify({
-                value: "test"
-            }));
+           
             /*
             const res = await fetch(url, requestOptions)
                 .then(response => response.text())

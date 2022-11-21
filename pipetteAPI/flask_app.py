@@ -1,7 +1,3 @@
-#------------------------------------------
-# Flask setup
-#------------------------------------------
-
 from flask import Flask, request, make_response, jsonify
 from flask_cors import CORS
 import requests
@@ -10,6 +6,7 @@ import random
 import datetime
 from PIL import Image
 from numpy import asarray
+import os
 
 #------------------------------------------
 # For ssh connection
@@ -75,11 +72,13 @@ def start_protocol():
         # VOLUME_NEEDED = [500,340,200,420]
         print(specifications)
 
-        data[-1] = "N_EPPENDORFS = "+ str(specifications["protocol1"]["n_eppendorfs"]) +"\n"
-        data[-2] = "N_FALCONS_15ML = "+ str(specifications["protocol1"]["n_falcons_15ml"]) +"\n"
-        data[-3] = "STARTING_FALCON_VOLUME = "+ str(specifications["protocol1"]["starting_v_falcon"]) +"\n"
-        data[-4] = "VOLUME_NEEDED = "+ str(specifications["protocol1"]["volume_falcons"]) +"\n"
-
+        data[0] = "N_EPPENDORFS = "+ str(specifications["protocol1"]["n_eppendorfs"]['value']) +"\n"
+        data[1] = "N_FALCONS_15ML = "+ str(specifications["protocol1"]["n_falcons_15ml"]['value']) +"\n"
+        data[2] = "STARTING_FALCON_VOLUME = "+ str(specifications["protocol1"]["starting_v_falcon"]['value']) +"\n"
+        data[3] = "VOLUME_NEEDED = "+ str(list(map(int,specifications["protocol1"]["volume_falcons"]['value']))) +"\n"
+        print("http://" + os.environ.get("ENDPOINT_AGENT") + ":" + os.environ.get("PORT_AGENT") + "/iot/json?k=" + os.environ.get("API_KEY") + "&i=" + os.environ.get("DEVICE_ID"))
+        data[4] = "URL = '"+str("http://" + os.environ.get("ENDPOINT_AGENT") + ":" + os.environ.get("PORT_AGENT") + "/iot/json?k=" + os.environ.get("API_KEY") + "&i=" + os.environ.get("DEVICE_ID"))+"'"
+        
         file = open("./protocols/protocol_1.py", "w")
         file.writelines(data)
         file.close()
@@ -93,8 +92,9 @@ def start_protocol():
         # N_EPPENDORFS = 24
         # STARTING_V_FALCON_B4 = 5000
 
-        data[-1] = "N_EPPENDORFS = "+ str(specifications["protocol2"]["n_eppendorfs"]) +"\n"
-        data[-2] = "STARTING_V_FALCON_B4 = "+ str(specifications["protocol2"]["starting_v_falcon_B4"]) +"\n"
+        data[0] = "N_EPPENDORFS = "+ str(specifications["protocol2"]["n_eppendorfs"]['value']) +"\n"
+        data[1] = "STARTING_V_FALCON_B4 = "+ str(specifications["protocol2"]["starting_v_falcon_B4"]['value']) +"\n"
+        data[3] = "URL = '" + str("http://" + os.environ.get("ENDPOINT_AGENT") + ":" + os.environ.get("PORT_AGENT") + "/iot/json?k=" + os.environ.get("API_KEY") + "&i=" + os.environ.get("DEVICE_ID"))+"'"
 
         file = open("./protocols/protocol_2.py", "w")
         file.writelines(data)
@@ -110,9 +110,10 @@ def start_protocol():
         # N_WELL_RACKS = 6
         # VOLUME_FALCONS = [25000,25000,25000]
 
-        data[-1] = "N_EPPENDORFS = "+ str(specifications["protocol3"]["n_eppendorfs"]) +"\n"
+        data[0] = "N_EPPENDORFS = "+ str(specifications["protocol3"]["n_eppendorfs"]['value']) +"\n"
         # data[-2] = "VOLUME_FALCONS = "+ str(specifications["protocol3"]["volume_falcons"]) +"\n"
-        data[-3] = "N_WELL_RACKS = "+ str(specifications["protocol3"]["n_well_racks"]) +"\n"
+        data[2] = "N_WELL_RACKS = "+ str(specifications["protocol3"]["n_well_racks"]['value']) +"\n"
+        data[3] = "URL = '" + str("http://" + os.environ.get("ENDPOINT_AGENT") + ":" + os.environ.get("PORT_AGENT") + "/iot/json?k=" + os.environ.get("API_KEY") + "&i=" + os.environ.get("DEVICE_ID"))+"'"
 
         file = open("./protocols/protocol_3.py", "w")
         file.writelines(data)
@@ -126,7 +127,8 @@ def start_protocol():
 
         # N_EPPENDORFS = 24
 
-        data[-1] = "N_EPPENDORFS = "+ str(specifications["protocol4"]["n_cuvettes"]) +"\n"
+        data[0] = "N_EPPENDORFS = "+ str(specifications["protocol4"]["n_cuvettes"]['value']) +"\n"
+        data[1] = "URL = '" + str("http://" + os.environ.get("ENDPOINT_AGENT") + ":" + os.environ.get("PORT_AGENT") + "/iot/json?k=" + os.environ.get("API_KEY") + "&i=" + os.environ.get("DEVICE_ID"))+"'"
 
         file = open("./protocols/protocol_4.py", "w")
         file.writelines(data)
@@ -140,8 +142,9 @@ def start_protocol():
 
         # N_CUVETTES = 24
 
-        data[-1] = "N_CUVETTES = "+ str(specifications["protocol5"]["n_cuvettes"]) +"\n"
-        data[-2] = "N_WELL_RACKS = "+ str(specifications["protocol5"]["n_well_racks"]) +"\n"
+        data[0] = "N_CUVETTES = "+ str(specifications["protocol5"]["n_cuvettes"]['value']) +"\n"
+        data[1] = "N_WELL_RACKS = "+ str(specifications["protocol5"]["n_well_racks"]['value']) +"\n"
+        data[2] = "URL = '" + str("http://" + os.environ.get("ENDPOINT_AGENT") + ":" + os.environ.get("PORT_AGENT") + "/iot/json?k=" + os.environ.get("API_KEY") + "&i=" + os.environ.get("DEVICE_ID"))+"'"
 
         file = open("./protocols/protocol_5.py", "w")
         file.writelines(data)
@@ -159,9 +162,10 @@ def start_protocol():
             print("SCP connection successful")
         else:
             print("SCP connection error")
+            return make_response(jsonify({"command": "Error copying protocol file"}, 500))
     except subprocess.CalledProcessError as e:
         print(e.output)
-        return "Error copying protocol file"
+        return make_response(jsonify({"command": "Error copying protocol file"}, 500))
         
     #--------------------------------------------
     # SSH connection for executing protocol
@@ -187,18 +191,25 @@ def start_protocol():
                         data = json.load(json_file)
                     print("SCP connection successful")
                     print(data)
-                    return "Operation finished"
+                    ssh.close()
+                    return make_response(jsonify({"command": "Operation finished"}, 200))
                 else:
                     print("SCP connection error. Could not copy results")
+                    ssh.close()
+                    return make_response(jsonify({"command": "SCP connection error. Could not copy results"}, 500))
             except subprocess.CalledProcessError as e:
                 print(e.output)
-                return "Error copying protocol file"
+                ssh.close()
+                return make_response(jsonify({"command": "Error copying result file"}, 500))
         else:
             print("Error", exit_status)
+            ssh.close()
+            return make_response(jsonify({"command": "Error executing protocol"}, 500))
         ssh.close()
     except Exception as e:
         print(e)
         ssh.close()
+        return make_response(jsonify({"command" "Error executing protocol"}, 500))
 
     return make_response(jsonify({}, 200))
 

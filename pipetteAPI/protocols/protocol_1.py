@@ -1,3 +1,12 @@
+VOLUME_NEEDED = [500,400,300,250]
+STARTING_FALCON_VOLUME = 5000
+N_FALCONS_15ML = 4
+N_EPPENDORFS = 24
+URL = "test"
+
+
+
+
 from time import sleep
 from opentrons import simulate,execute,types
 import json
@@ -53,6 +62,7 @@ def back_home(pipette300,pipette1000):
 # protocol = execute.get_protocol_api('2.12')
 protocol = simulate.get_protocol_api('2.12')
 
+
 def run(protocol: protocol_api.ProtocolContext):
 
     #------------------------------------------
@@ -80,6 +90,11 @@ def run(protocol: protocol_api.ProtocolContext):
     #--------------------------------------------
     #TODO Orion call getting parametres for liquid handler
     #-------------------------------------------- 
+
+    # updateValues()
+
+    
+
 
     n_eppendorfs = N_EPPENDORFS
     n_falcons = N_FALCONS_15ML
@@ -237,8 +252,8 @@ def run(protocol: protocol_api.ProtocolContext):
         import requests 
         # url = "http://212.128.140.209:7896/iot/json?k=4jggokgpepnvsb2uv4s40d59ov2&i=liquidHandler001"
         # url = "http://212.128.155.117:8081/test_agent"
-        url = "http://" + os.environ.get("ENDPOINT_AGENT") + ":" + os.environ.get("PORT_AGENT") + "/iot/json?k=" + os.environ.get("API_KEY") + "&i=" + os.environ.get("DEVICE_ID")
-        
+        # url = "http://" + os.environ.get("ENDPOINT_AGENT") + ":" + os.environ.get("PORT_AGENT") + "/iot/json?k=" + os.environ.get("API_KEY") + "&i=" + os.environ.get("DEVICE_ID")
+        url = URL
         headers = {
             'Content-Type': 'application/json',
             'fiware-services': 'openiot'
@@ -259,7 +274,15 @@ def run(protocol: protocol_api.ProtocolContext):
         #     protocol.comment("Error creating data file ")
         #     protocol.comment(e)
 
-VOLUME_NEEDED = [500,400,300,250]
-STARTING_FALCON_VOLUME = 5000
-N_FALCONS_15ML = 4
-N_EPPENDORFS = 24
+
+# def updateValues():
+#     VOLUME_NEEDED = [500,400,300,250]
+#     STARTING_FALCON_VOLUME = 5000
+#     N_FALCONS_15ML = 4
+#     N_EPPENDORFS = 24
+#     return 0
+
+# VOLUME_NEEDED = [500,400,300,250]
+# STARTING_FALCON_VOLUME = 5000
+# N_FALCONS_15ML = 4
+# N_EPPENDORFS = 24

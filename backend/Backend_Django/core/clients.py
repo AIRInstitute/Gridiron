@@ -480,10 +480,10 @@ class OrionClient(object):
         pipetteEntity = self.get_entity_by_id("urn:ngsi-ld:pipette")
         pipetteEntity = pipetteEntity.json()
 
-        if pipetteEntity['executeProtocol'] == 0:
-            command = 1
-        else:
-            command = 0
+        # if pipetteEntity['executeProtocol'] == 0:
+        #     command = 1
+        # else:
+        #     command = 0
         
         payloadOrion = {
             # "executeProtocol": {
@@ -550,10 +550,10 @@ class OrionClient(object):
         pipetteEntity = self.get_entity_by_id("urn:ngsi-ld:pipette")
         pipetteEntity = pipetteEntity.json()
 
-        if pipetteEntity['executeProtocol'] == 0:
-            command = 1
-        else:
-            command = 0
+        # if pipetteEntity['executeProtocol'] == 0:
+        #     command = 1
+        # else:
+        #     command = 0
         
         payloadOrion = {
             # "executeProtocol": {
@@ -612,10 +612,10 @@ class OrionClient(object):
         pipetteEntity = self.get_entity_by_id("urn:ngsi-ld:pipette")
         pipetteEntity = pipetteEntity.json()
 
-        if pipetteEntity['executeProtocol'] == 0:
-            command = 1
-        else:
-            command = 0
+        # if pipetteEntity['executeProtocol'] == 0:
+        #     command = 1
+        # else:
+        #     command = 0
         
         payloadOrion = {
             # "executeProtocol": {
@@ -674,10 +674,10 @@ class OrionClient(object):
         pipetteEntity = self.get_entity_by_id("urn:ngsi-ld:pipette")
         pipetteEntity = pipetteEntity.json()
 
-        if pipetteEntity['executeProtocol'] == 0:
-            command = 1
-        else:
-            command = 0
+        # if pipetteEntity['executeProtocol'] == 0:
+        #     command = 1
+        # else:
+        #     command = 0
         
         payloadOrion = {
             # "executeProtocol": {
@@ -732,10 +732,10 @@ class OrionClient(object):
         pipetteEntity = self.get_entity_by_id("urn:ngsi-ld:pipette")
         pipetteEntity = pipetteEntity.json()
 
-        if pipetteEntity['executeProtocol'] == 0:
-            command = 1
-        else:
-            command = 0
+        # if pipetteEntity['executeProtocol'] == 0:
+        #     command = 1
+        # else:
+        #     command = 0
         
         payloadOrion = {
             # "executeProtocol": {

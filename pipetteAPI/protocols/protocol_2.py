@@ -1,3 +1,12 @@
+STARTING_V_FALCON_B4 = 9600
+N_EPPENDORFS = 24
+URL = "test"
+
+
+
+
+
+
 from time import sleep
 from opentrons import simulate,execute,types
 import json
@@ -171,8 +180,9 @@ def run(protocol: protocol_api.ProtocolContext):
         import requests 
         # url = "http://212.128.140.209:7896/iot/json?k=4jggokgpepnvsb2uv4s40d59ov2&i=liquidHandler001"
         # url = "http://212.128.155.117:8081/test_agent"
-        url = "http://" + os.environ.get("ENDPOINT_AGENT") + ":" + os.environ.get("PORT_AGENT") + "/iot/json?k=" + os.environ.get("API_KEY") + "&i=" + os.environ.get("DEVICE_ID")
-        
+        # url = "http://" + os.environ.get("ENDPOINT_AGENT") + ":" + os.environ.get("PORT_AGENT") + "/iot/json?k=" + os.environ.get("API_KEY") + "&i=" + os.environ.get("DEVICE_ID")
+        url = URL 
+
         headers = {
             'Content-Type': 'application/json',
             'fiware-services': 'openiot'
@@ -194,5 +204,5 @@ def run(protocol: protocol_api.ProtocolContext):
         #     protocol.comment(e)
 
 
-STARTING_V_FALCON_B4 = 9600
-N_EPPENDORFS = 24
+# STARTING_V_FALCON_B4 = 9600
+# N_EPPENDORFS = 24
