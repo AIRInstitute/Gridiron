@@ -23,13 +23,14 @@ var MyShared = {
         Navbar,
         NavbarMobile
     },
+    /*
     created() {
         SocketioService.setupSocketConnection();
 
     },
     beforeUnmount() {
-        SocketioService.disconnect();
-    },
+        SocketioService.disconnect(); 
+    },*/
     /* Props */
     props: {},
     /* Methods */
@@ -99,6 +100,7 @@ var MyShared = {
             document.getElementById("waitForProtocol").hidden = false
 
             // Wait for the protocol to finish
+            /*
             SocketioService.socket.on("resultPipette", (msg) => {
                 var data = JSON.parse(msg);
                 console.log(data);
@@ -111,26 +113,32 @@ var MyShared = {
 
                 document.getElementById("selectionProtocol").hidden = false
                 document.getElementById("waitForProtocol").hidden = true
-            });
-            /*
+            });*/
+
             xhr.onreadystatechange = function () {
                 if (this.readyState != 4) return;
-            
                 if (this.status == 200) {
-                    // var data = JSON.parse(this.responseText);
-                    // console.log(data);
-                    
-                    var buttons = document.getElementsByClassName("btn profile-button")
-                    buttons[0].hidden = false
+                    //alert("Protocol finnished successfully");
+                    var data = this.response;
+                    console.log(data);
+                    if (data["error"]) {
+                        alert("Can't resolve protocol");
+                        location.reload();
+                    }
+                    else {
 
-                    var spinners = document.getElementsByClassName("fas fa-spinner fa-spin")
-                    spinners[0].hidden = true
+                        alert("Protocol end succes");
+                        var buttons = document.getElementsByClassName("btn profile-button")
+                        buttons[0].hidden = false
 
-                    document.getElementById("selectionProtocol").hidden = false
-                    document.getElementById("waitForProtocol").hidden = true
-                    
+                        var spinners = document.getElementsByClassName("fas fa-spinner fa-spin")
+                        spinners[0].hidden = true
+
+                        document.getElementById("selectionProtocol").hidden = false
+                        document.getElementById("waitForProtocol").hidden = true
+                    }
                 }
-            };*/
+            };
 
 
         },
@@ -148,9 +156,9 @@ var MyShared = {
             }
 
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", process.env.VUE_APP_FIRST_PROTOCOL, true);
+            xhr.open("POST", process.env.VUE_APP_SECOND_PROTOCOL, true);
             xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.setRequestHeader('Access-Control-Allow-Origin', 'Content-Type')
+            //xhr.setRequestHeader('Access-Control-Allow-Origin', 'Content-Type')
             xhr.send(JSON.stringify({
                 value: value
             }));
@@ -164,7 +172,7 @@ var MyShared = {
 
             document.getElementById("selectionProtocol").hidden = true
             document.getElementById("waitForProtocol").hidden = false
-
+            /*
             SocketioService.socket.on("resultPipette", (msg) => {
                 var data = JSON.parse(msg);
                 console.log(data);
@@ -177,27 +185,40 @@ var MyShared = {
 
                 document.getElementById("selectionProtocol").hidden = false
                 document.getElementById("waitForProtocol").hidden = true
-            });
+            });*/
 
-            /*
+
             xhr.onreadystatechange = function () {
                 if (this.readyState != 4) return;
-            
                 if (this.status == 200) {
-                    var data = JSON.parse(this.responseText);
+                    var data = this.response;
                     console.log(data);
-                    
-                    var buttons = document.getElementsByClassName("btn profile-button")
-                    buttons[0].hidden = false
+                    if (data["error"]) {
+                        alert("Can't resolve protocol");
+                        location.reload();
+                    }
+                    else {
+                        alert("Protocol finnished successfully");
 
-                    var spinners = document.getElementsByClassName("fas fa-spinner fa-spin")
-                    spinners[0].hidden = true
+                        var buttons = document.getElementsByClassName("btn profile-button")
+                        buttons[0].hidden = false
 
-                    document.getElementById("selectionProtocol").hidden = false
-                    document.getElementById("waitForProtocol").hidden = true
-                    
+                        var spinners = document.getElementsByClassName("fas fa-spinner fa-spin")
+                        spinners[0].hidden = true
+
+                        document.getElementById("selectionProtocol").hidden = false
+                        document.getElementById("waitForProtocol").hidden = true
+                    }
+
+
                 }
-            };*/
+
+                if (this.status == 500) {
+                    alert("Can't resolve protocol");
+                    console.log("can't resolve")
+                    return;
+                }
+            };
         },
 
         //--------------------------------------------------------------------------
@@ -215,9 +236,9 @@ var MyShared = {
             }
 
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", process.env.VUE_APP_START_PROTOCOL, true);
+            xhr.open("POST", process.env.VUE_APP_THIRD_PROTOCOL, true);
             xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.setRequestHeader('Access-Control-Allow-Origin', 'Content-Type')
+            //xhr.setRequestHeader('Access-Control-Allow-Origin', 'Content-Type')
             xhr.send(JSON.stringify({
                 value: value
             }));
@@ -231,7 +252,7 @@ var MyShared = {
 
             document.getElementById("selectionProtocol").hidden = true
             document.getElementById("waitForProtocol").hidden = false
-
+            /*
             SocketioService.socket.on("resultPipette", (msg) => {
                 var data = JSON.parse(msg);
                 console.log(data);
@@ -245,25 +266,38 @@ var MyShared = {
                 document.getElementById("selectionProtocol").hidden = false
                 document.getElementById("waitForProtocol").hidden = true
             });
-            /*
+            */
             xhr.onreadystatechange = function () {
                 if (this.readyState != 4) return;
-
                 if (this.status == 200) {
-                    var data = JSON.parse(this.responseText);
+                    var data = this.response;
                     console.log(data);
+                    if (data["error"]) {
+                        alert("Can't resolve the protocol")
+                        location.reload();
+                    }
+                    else {
+                        alert("Protocol finnished successfully");
 
-                    var buttons = document.getElementsByClassName("btn profile-button")
-                    buttons[0].hidden = false
+                        var buttons = document.getElementsByClassName("btn profile-button")
+                        buttons[0].hidden = false
 
-                    var spinners = document.getElementsByClassName("fas fa-spinner fa-spin")
-                    spinners[0].hidden = true
+                        var spinners = document.getElementsByClassName("fas fa-spinner fa-spin")
+                        spinners[0].hidden = true
 
-                    document.getElementById("selectionProtocol").hidden = false
-                    document.getElementById("waitForProtocol").hidden = true
+                        document.getElementById("selectionProtocol").hidden = false
+                        document.getElementById("waitForProtocol").hidden = true
+                    }
+
 
                 }
-            };*/
+
+                if (this.status == 500) {
+                    alert("Can't resolve protocol");
+                    console.log("can't resolve")
+                    return;
+                }
+            };
         },
 
         //--------------------------------------------------------------------------
@@ -278,9 +312,9 @@ var MyShared = {
             }
 
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", process.env.VUE_APP_START_PROTOCOL, true);
+            xhr.open("POST", process.env.VUE_APP_FOURTH_PROTOCOL, true);
             xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.setRequestHeader('Access-Control-Allow-Origin', 'Content-Type')
+            //xhr.setRequestHeader('Access-Control-Allow-Origin', 'Content-Type')
             xhr.send(JSON.stringify({
                 value: value
             }));
@@ -294,7 +328,7 @@ var MyShared = {
 
             document.getElementById("selectionProtocol").hidden = true
             document.getElementById("waitForProtocol").hidden = false
-
+            /*
             SocketioService.socket.on("resultPipette", (msg) => {
                 var data = JSON.parse(msg);
                 console.log(data);
@@ -308,25 +342,31 @@ var MyShared = {
                 document.getElementById("selectionProtocol").hidden = false
                 document.getElementById("waitForProtocol").hidden = true
             });
-            /*
+            */
             xhr.onreadystatechange = function () {
                 if (this.readyState != 4) return;
-
                 if (this.status == 200) {
-                    var data = JSON.parse(this.responseText);
+                    var data = this.response;
                     console.log(data);
+                    if (data["error"]) {
+                        alert("Can't resolve the protocol");
+                        location.reload();
+                    } else {
+                        alert("Protocol finnished successfully");
 
-                    var buttons = document.getElementsByClassName("btn profile-button")
-                    buttons[0].hidden = false
+                        var buttons = document.getElementsByClassName("btn profile-button")
+                        buttons[0].hidden = false
 
-                    var spinners = document.getElementsByClassName("fas fa-spinner fa-spin")
-                    spinners[0].hidden = true
+                        var spinners = document.getElementsByClassName("fas fa-spinner fa-spin")
+                        spinners[0].hidden = true
 
-                    document.getElementById("selectionProtocol").hidden = false
-                    document.getElementById("waitForProtocol").hidden = true
+                        document.getElementById("selectionProtocol").hidden = false
+                        document.getElementById("waitForProtocol").hidden = true
+                    }
+
 
                 }
-            };*/
+            };
         },
 
         //--------------------------------------------------------------------------
@@ -342,9 +382,9 @@ var MyShared = {
             }
             console.log("Pre llamada");
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", process.env.VUE_APP_START_PROTOCOL, true);
+            xhr.open("POST", process.env.VUE_APP_FIFTH_PROTOCOL, true);
             xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.setRequestHeader('Access-Control-Allow-Origin', 'Content-Type')
+            //xhr.setRequestHeader('Access-Control-Allow-Origin', 'Content-Type')
             xhr.send(JSON.stringify({
                 value: value
             }));
@@ -359,7 +399,7 @@ var MyShared = {
 
             document.getElementById("selectionProtocol").hidden = true
             document.getElementById("waitForProtocol").hidden = false
-
+            /*
             SocketioService.socket.on("resultPipette", (msg) => {
                 var data = JSON.parse(msg);
                 console.log(data);
@@ -373,25 +413,33 @@ var MyShared = {
                 document.getElementById("selectionProtocol").hidden = false
                 document.getElementById("waitForProtocol").hidden = true
             });
-            /*
+            */
             xhr.onreadystatechange = function () {
                 if (this.readyState != 4) return;
-
                 if (this.status == 200) {
-                    var data = JSON.parse(this.responseText);
+                    var data = this.response;
                     console.log(data);
+                    if (data["error"]) {
+                        alert("Can't resolve protocol");
+                        location.reload();
+                    } else {
+                        alert("Protocol finnished successfully");
+                        var data = JSON.parse(this.responseText);
+                        console.log(data);
 
-                    var buttons = document.getElementsByClassName("btn profile-button")
-                    buttons[0].hidden = false
+                        var buttons = document.getElementsByClassName("btn profile-button")
+                        buttons[0].hidden = false
 
-                    var spinners = document.getElementsByClassName("fas fa-spinner fa-spin")
-                    spinners[0].hidden = true
+                        var spinners = document.getElementsByClassName("fas fa-spinner fa-spin")
+                        spinners[0].hidden = true
 
-                    document.getElementById("selectionProtocol").hidden = false
-                    document.getElementById("waitForProtocol").hidden = true
+                        document.getElementById("selectionProtocol").hidden = false
+                        document.getElementById("waitForProtocol").hidden = true
+                    }
+
 
                 }
-            };*/
+            };
         },
 
         //--------------------------------------------------------------------------
@@ -406,7 +454,7 @@ var MyShared = {
             var xhr = new XMLHttpRequest();
             xhr.open("POST", process.env.VUE_APP_START_PROTOCOL, true);
             xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.setRequestHeader('Access-Control-Allow-Origin', 'Content-Type')
+            //xhr.setRequestHeader('Access-Control-Allow-Origin', 'Content-Type')
             xhr.send(JSON.stringify({
                 value: value
             }));
@@ -420,7 +468,7 @@ var MyShared = {
 
             document.getElementById("selectionProtocol").hidden = true
             document.getElementById("waitForProtocol").hidden = false
-
+            /*
             SocketioService.socket.on("resultPipette", (msg) => {
                 var data = JSON.parse(msg);
                 console.log(data);
@@ -434,26 +482,29 @@ var MyShared = {
                 document.getElementById("selectionProtocol").hidden = false
                 document.getElementById("waitForProtocol").hidden = true
             });
+            */
 
-            /*
             xhr.onreadystatechange = function () {
                 if (this.readyState != 4) return;
-
                 if (this.status == 200) {
-                    var data = JSON.parse(this.responseText);
+                    var data = this.response;
                     console.log(data);
+                    if (data["error"]) {
+                        alert("Can't resolve protocol");
+                        location.reload();
+                    } else {
+                        alert("Protocol finnished successfully");
+                        var buttons = document.getElementsByClassName("btn profile-button")
+                        buttons[0].hidden = false
 
-                    var buttons = document.getElementsByClassName("btn profile-button")
-                    buttons[0].hidden = false
+                        var spinners = document.getElementsByClassName("fas fa-spinner fa-spin")
+                        spinners[0].hidden = true
 
-                    var spinners = document.getElementsByClassName("fas fa-spinner fa-spin")
-                    spinners[0].hidden = true
-
-                    document.getElementById("selectionProtocol").hidden = false
-                    document.getElementById("waitForProtocol").hidden = true
-
+                        document.getElementById("selectionProtocol").hidden = false
+                        document.getElementById("waitForProtocol").hidden = true
+                    }
                 }
-            };*/
+            };
         }
 
     },

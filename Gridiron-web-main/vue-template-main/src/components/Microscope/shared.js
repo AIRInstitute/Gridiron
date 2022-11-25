@@ -63,9 +63,12 @@ var MyShared = {
             xhr.send(JSON.stringify({
                 value: url
             }));
+            const TIMEOUT_ID =  setTimeout(function(){
+                alert("Waiting time exceeded");
+                location.reload();
+            },240000);
             SocketioService.socket.on("predictionWithoutLiquid", (msg) => {
-                //console.log("Ahora viene sin liquido ");
-                //console.log("msg: ", msg);
+                clearTimeout(TIMEOUT_ID);
                 var img_array_show = JSON.parse(msg["image"]);
                 this.cellsNumber = msg["totalNumberOfCells"];
                 
@@ -75,7 +78,6 @@ var MyShared = {
                 
                 var canvasNoLiquid = document.getElementById("noLiquid");
                 canvasNoLiquid.hidden = false
-
 
                 canvasNoLiquid.height = img_array_show.length;
                 canvasNoLiquid.width = img_array_show[0].length;
@@ -183,19 +185,22 @@ var MyShared = {
             xhr.send(JSON.stringify({
                 'totalNumberOfCells': this.cellsNumber
             }));
+
+
             //var url_flask = "http://192.168.2.233:5000/microscope/getAnImage"
             //var img_array
+            const TIMEOUT_ID =  setTimeout(function(){
+                alert("Waiting time exceeded");
+                location.reload();
+            },240000);
             SocketioService.socket.on("predictionWithLiquid", (msg) => {
-
-                //console.log("Ahora viene con liquido ");
-                //console.log("msg: ", msg);
+                clearTimeout(TIMEOUT_ID);
+                //console.log(msg);
                 var img_array_show_l = JSON.parse(msg["image"]);
-                this.cellsNumber = msg["totalNumberOfCells"];
                 this.cellsAliveNumber = msg["numberOfLifeCells"];
                 this.cellsDeadNumber = msg["cellViability"];
-                //console.log("img_array: ", img_array_show_l);
 
-                var canvasLiquid = document.getElementsByName("Liquid");
+                var canvasLiquid = document.getElementById("Liquid");
                 canvasLiquid.hidden = false
 
                 canvasLiquid.height = img_array_show_l.length;
