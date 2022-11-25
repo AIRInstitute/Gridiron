@@ -192,7 +192,16 @@ def start_protocol():
                     print("SCP connection successful")
                     print(data)
                     ssh.close()
-                    return make_response(jsonify({"command": "Operation finished"}, 200))
+                    if protocol == "protocol_1.py":
+                        return make_response(jsonify({"protocol1": "OK"}, 200))
+                    if protocol == "protocol_2.py":
+                        return make_response(jsonify({"protocol2": "OK"}, 200))
+                    if protocol == "protocol_3.py":
+                        return make_response(jsonify({"protocol3": "OK"}, 200))
+                    if protocol == "protocol_4.py":
+                        return make_response(jsonify({"protocol4": "OK"}, 200))
+                    if protocol == "protocol_5.py":
+                        return make_response(jsonify({"protocol5": "OK"}, 200))
                 else:
                     print("SCP connection error. Could not copy results")
                     ssh.close()
