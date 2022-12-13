@@ -1,6 +1,9 @@
-# Title
+# GRIDIRON
+Biosensors are interesting devices arising from a synergistic combination of well-established scientific knowledge and cutting-edge technologies including nanotechnology, rational design, materials science, and microfluidics. These devices have proved to be useful in various sectors (e.g., medical, agrifood, environmental) and have demonstrated good practicality, sensitivity, reproducibility, and fast response. However, a critical analysis of the worldwide biosensor market suggests that there is a bottleneck in the technology readiness level in prototype development, corresponding to a severe gap between academic research and industrial investments.
 
-This is an example file with default selections.
+The global biosensors market size was valued at USD 22.4 billion in 2020 and is expected to expand at a compound annual growth rate (CAGR) of 7.9% from 2021 to 2028. Biosensors, owing to their ability to assess health status, and disease onset and progression, are being used extensively in-home healthcare by patients, and hence, are expected to boost market growth over the forecast period. Furthermore, technological advancements, as well as various non-medical-based applications are expected to enhance the applicability of the market for biosensors, thus promoting its growth.
+
+Therefore, there is a need to automate and optimize production processes in the manufacture of biosensors and auxiliary electronic materials to reduce costs and false negatives in diagnostic tests. In this regard, there is a growing trend in investment in solutions that detect production failures in increasingly robotic biosensor manufacturing environments. GRIDIRON project deals with these issues and aims to detect and prevent potential errors in circuitry, electrodes and vials used in testing.
 
 ## Install
 
