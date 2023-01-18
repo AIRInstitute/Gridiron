@@ -195,7 +195,7 @@ This work utilizes the dataset from the 2018 Data Science Bowl Grand Challenges,
 
 ![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen17.png)
 
-### Status
+
 ![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen15.png)
 
 
@@ -207,7 +207,7 @@ A custom developed software called DeepCAN Labeling App was used for labeling th
 
 ![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen16.png)
 
-### Tasks
+
  
 In order to assure the best performance regarding the Cell Viability process, the cell detecction model is being improved to maximize cell discovery
 From the number of cells dyed blue due to dye entry, the percentage of viability is calculated according to the ratio: 
