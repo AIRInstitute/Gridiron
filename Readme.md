@@ -189,13 +189,13 @@ Connection to the database has been made, allowing Orion Context Broker to trans
 
 ![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen14.png)
 
-## DATA ANALITICS
+## Cell Data Analytics
 
 This work utilizes the dataset from the 2018 Data Science Bowl Grand Challenges, which contains 735 images in total. Of the total image set, 650 images contain pixel-level annotation for training and the remaining 65 samples are unlabeled to be used in testing. From the training set, 80% of the samples are used for training and remaining 20% are used for validation. The numbers of training and validation samples are 536 and 134 respectively
 
 ![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen17.png)
 
-### STATUS
+### Status
 ![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen15.png)
 
 
