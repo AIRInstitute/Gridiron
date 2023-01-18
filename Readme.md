@@ -153,32 +153,32 @@ Primero realizaremos una imagen de una muestra sin aplicar la trypan blue soluti
 
 Now we will go to the pipette tab, where we will be able to select which protocol we want to execute, fill in the necessary values for the execution of that protocol and execute it.
 
-## •   Protocol 1: 
+### •   Protocol 1: 
 Process of aspiration from Falcon tubes 15ml and dispensation of n calculated ml into eppendorf tubes.
 
 ![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen8.png)
 
-## •   
-Protocol 2: Process of aspiration from 1 Falcon tube 50ml with antibodies and dispensation in eppendorf tubes with cells
+### •   Protocol 2: 
+Process of aspiration from 1 Falcon tube 50ml with antibodies and dispensation in eppendorf tubes with cells
 
 ![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen9.png)
 
-## •   
-Protocol 3: Process of aspiration from Falcon tubes 50ml and dispensation of 3 x 1ml into wellplates
+### •   Protocol 3: 
+Process of aspiration from Falcon tubes 50ml and dispensation of 3 x 1ml into wellplates
 
 ![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen10.png)
 
-## •   
-Protocol 4: Process of aspiration from eppendorf tubes and dispensation of 0.4ml of solution into custom cuvettes
+### •	Protocol 4: 
+Process of aspiration from eppendorf tubes and dispensation of 0.4ml of solution into custom cuvettes
 
 ![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen11.png)
 
-## •   
-Protocol 5: Process of aspiration from custom cuvettes with solution and dispensation into wellplates
+### •  Protocol 5: 
+Process of aspiration from custom cuvettes with solution and dispensation into wellplates
 
 ![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen12.png)
 
-•   Protocol 6: 
+### •   Protocol 6: 
 Second day protocol where cells are detached from the wellplates and placed into eppendorf tubes
 
 ![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen13.png)
@@ -189,7 +189,7 @@ Connection to the database has been made, allowing Orion Context Broker to trans
 
 ![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen14.png)
 
-## DATA ANALITICS
+# DATA ANALITICS
 
 This work utilizes the dataset from the 2018 Data Science Bowl Grand Challenges, which contains 735 images in total. Of the total image set, 650 images contain pixel-level annotation for training and the remaining 65 samples are unlabeled to be used in testing. From the training set, 80% of the samples are used for training and remaining 20% are used for validation. The numbers of training and validation samples are 536 and 134 respectively
 
