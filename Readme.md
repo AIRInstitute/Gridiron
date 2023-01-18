@@ -153,32 +153,56 @@ Primero realizaremos una imagen de una muestra sin aplicar la trypan blue soluti
 
 Now we will go to the pipette tab, where we will be able to select which protocol we want to execute, fill in the necessary values for the execution of that protocol and execute it.
 
-•   Protocol 1
+•   Protocol 1: Process of aspiration from Falcon tubes 15ml and dispensation of n calculated ml into eppendorf tubes.
 ![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen8.png)
 
-•   Protocol 2
+•   Protocol 2: Process of aspiration from 1 Falcon tube 50ml with antibodies and dispensation in eppendorf tubes with cells
 ![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen9.png)
 
-•   Protocol 3
+•   Protocol 3: Process of aspiration from Falcon tubes 50ml and dispensation of 3 x 1ml into wellplates
 ![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen10.png)
 
-•   Protocol 4
+•   Protocol 4: Process of aspiration from eppendorf tubes and dispensation of 0.4ml of solution into custom cuvettes
 ![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen11.png)
 
-•   Protocol 5
+•   Protocol 5: Process of aspiration from custom cuvettes with solution and dispensation into wellplates
 ![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen12.png)
 
-•   Protocol 6
+•   Protocol 6: Second day protocol where cells are detached from the wellplates and placed into eppendorf tubes
 ![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen13.png)
 
-RAMP Implementation
+## RAMP Implementation
 
 Connection to the database has been made, allowing Orion Context Broker to transfer data to the RAMP platform. Once the data has been stablished, creation of different dashboards is posible. Different dashboards are implemented with data from the testing of the liquid handling implementation of the protocols 
 
 ![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen14.png)
 
+## intelliGent automated testing of electRonIc DevIces foR covid detectiON
+
+## Introducction
+This work utilizes the dataset from the 2018 Data Science Bowl Grand Challenges, which contains 735 images in total. Of the total image set, 650 images contain pixel-level annotation for training and the remaining 65 samples are unlabeled to be used in testing. From the training set, 80% of the samples are used for training and remaining 20% are used for validation. The numbers of training and validation samples are 536 and 134 respectively
+
+![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen17.png)
+## STATUS
+![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen15.png)
 
 
+The Microscope interface allows to start with the cell viability. In this process, an user sets the Petri dish in the microscope, and starts the cell counting process.
+
+When finishes, the output with the cell viability is given, allowing the scientific to make the necessary calculations for the protocols
+
+A custom developed software called DeepCAN Labeling App was used for labeling the data used to train the Cluster CNN and Viability CNN 
+
+![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen16.png)
+
+## Tasks
+ 
+In order to assure the best performance regarding the Cell Viability process, the cell detecction model is being improved to maximize cell discovery
+From the number of cells dyed blue due to dye entry, the percentage of viability is calculated according to the ratio: 
+	Percentage of viability% = 100 x [1 - number of dead cells (blue) / number of cells measured]
+Ensuring an good cell detecction translates into a more accurate cell viability, optimizing resources for the remaining process.
+
+![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen18.png)
 <!-- ## Contributing
 
 PRs accepted. -->
