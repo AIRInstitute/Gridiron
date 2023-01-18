@@ -153,7 +153,32 @@ Primero realizaremos una imagen de una muestra sin aplicar la trypan blue soluti
 
 Now we will go to the pipette tab, where we will be able to select which protocol we want to execute, fill in the necessary values for the execution of that protocol and execute it.
 
+•   Protocol 1
 ![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen8.png)
+
+•   Protocol 2
+![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen9.png)
+
+•   Protocol 3
+![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen10.png)
+
+•   Protocol 4
+![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen11.png)
+
+•   Protocol 5
+![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen12.png)
+
+•   Protocol 6
+![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen13.png)
+
+RAMP Implementation
+
+Connection to the database has been made, allowing Orion Context Broker to transfer data to the RAMP platform. Once the data has been stablished, creation of different dashboards is posible. Different dashboards are implemented with data from the testing of the liquid handling implementation of the protocols 
+
+![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen14.png)
+
+
+
 <!-- ## Contributing
 
 PRs accepted. -->
