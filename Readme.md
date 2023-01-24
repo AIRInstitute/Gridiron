@@ -215,6 +215,12 @@ From the number of cells dyed blue due to dye entry, the percentage of viability
 Ensuring an good cell detecction translates into a more accurate cell viability, optimizing resources for the remaining process.
 
 ![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen18.png)
+
+
+![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen19.png)
+
+
+![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen20.png)
 <!-- ## Contributing
 
 PRs accepted. -->
