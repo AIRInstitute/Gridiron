@@ -217,8 +217,17 @@ Ensuring an good cell detecction translates into a more accurate cell viability,
 ![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen18.png)
 
 
+## Fiware Entities
+
+This section discusses the entities that our fiware agent will use. These are in charge of transmitting information between the laboratory apparatus and our application, one of them being in charge of the microscope and the robotic arm in charge of handling the pipettes.
+
+This agent is launched in a docker container on our machine called iotagent-json and another container called orion.
+
+• We have the entity in charge of transmitting the protocols to the robotic arm so that it can execute them. 
+
 ![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen19.png)
 
+• we have the entity in charge of obtaining the images from the microscope and processing them, counting the cells, both the images with and without Trypan Blue solution and returning the number of live or dead cells and the total. 
 
 ![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen20.png)
 <!-- ## Contributing
