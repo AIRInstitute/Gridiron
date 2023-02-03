@@ -219,7 +219,7 @@ Ensuring an good cell detecction translates into a more accurate cell viability,
 ## Technical details 
 
 ### Architecture
-Adapting the architecture and its components for RAMP uploading and improving Artificial Intelligence models with laboratory feedback.
+In the following image you can see the different components and technologies, as well as the relationship of each one of them.
 ![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/arch.png)
 
 
