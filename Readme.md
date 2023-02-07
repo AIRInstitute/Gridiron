@@ -104,19 +104,19 @@ To do this, we follow the steps below:
 
 •	Access the keyrock interface at the address "http://{{IP}:3005" and log in with the e-mail address admin@test.com and the password "1234".
 
-![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen1.png)
+![Image text](https://github.com/AIRInstitute/Gridiron/blob/main/images/Imagen1.png)
 
 A screen like the following one will appear:
  
-![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen2.png)
+![Image text](https://github.com/AIRInstitute/Gridiron/blob/main/images/Imagen2.png)
 
 •	Click in the button “Register” and enter the corresponding information about the application frontend:
  
-![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen3.png)
+![Image text](https://github.com/AIRInstitute/Gridiron/blob/main/images/Imagen3.png)
 
 •	Once you have done this, the application will have been created and will show you the application management screen, where you can perform tasks such as managing the pep proxy, register users in the application or, what interests us, obtain the Oauth2.0 credentials to use them to launch our last component, the frontend.
  
-![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen4.png)
+![Image text](https://github.com/AIRInstitute/Gridiron/blob/main/images/Imagen4.png)
 
 Now we are going to launch the last component, which is the frontend:
 
@@ -139,15 +139,15 @@ The use of the platform is really simple:
 
 First we find a screen where we can login:
 
-![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen5.png)
+![Image text](https://github.com/AIRInstitute/Gridiron/blob/main/images/Imagen5.png)
 
 Once we login we are redirected to a main menu where we can select if we want to use the microscope or the pipette, first we are going to use the microscope, whose tab is as shown below.
 
-![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen6.png)
+![Image text](https://github.com/AIRInstitute/Gridiron/blob/main/images/Imagen6.png)
 
 In this tab we can obtain images from the microscope and process them by machine learning algorithms for cell counting.
 
-![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen7.png)
+![Image text](https://github.com/AIRInstitute/Gridiron/blob/main/images/Imagen7.png)
 
 Primero realizaremos una imagen de una muestra sin aplicar la trypan blue solution y despues otra aplicando la solucion
 
@@ -156,47 +156,47 @@ Now we will go to the pipette tab, where we will be able to select which protoco
 ### •   Protocol 1: 
 Process of aspiration from Falcon tubes 15ml and dispensation of n calculated ml into eppendorf tubes.
 
-![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen8.png)
+![Image text](https://github.com/AIRInstitute/Gridiron/blob/main/images/Imagen8.png)
 
 ### •   Protocol 2: 
 Process of aspiration from 1 Falcon tube 50ml with antibodies and dispensation in eppendorf tubes with cells
 
-![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen9.png)
+![Image text](https://github.com/AIRInstitute/Gridiron/blob/main/images/Imagen9.png)
 
 ### •   Protocol 3: 
 Process of aspiration from Falcon tubes 50ml and dispensation of 3 x 1ml into wellplates
 
-![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen10.png)
+![Image text](https://github.com/AIRInstitute/Gridiron/blob/main/images/Imagen10.png)
 
 ### •	Protocol 4: 
 Process of aspiration from eppendorf tubes and dispensation of 0.4ml of solution into custom cuvettes
 
-![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen11.png)
+![Image text](https://github.com/AIRInstitute/Gridiron/blob/main/images/Imagen11.png)
 
 ### •  Protocol 5: 
 Process of aspiration from custom cuvettes with solution and dispensation into wellplates
 
-![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen12.png)
+![Image text](https://github.com/AIRInstitute/Gridiron/blob/main/images/Imagen12.png)
 
 ### •   Protocol 6: 
 Second day protocol where cells are detached from the wellplates and placed into eppendorf tubes
 
-![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen13.png)
+![Image text](https://github.com/AIRInstitute/Gridiron/blob/main/images/Imagen13.png)
 
 ## RAMP Implementation
 
 Connection to the database has been made, allowing Orion Context Broker to transfer data to the RAMP platform. Once the data has been stablished, creation of different dashboards is posible. Different dashboards are implemented with data from the testing of the liquid handling implementation of the protocols 
 
-![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen14.png)
+![Image text](https://github.com/AIRInstitute/Gridiron/blob/main/images/Imagen14.png)
 
 ## Cell Data Analytics
 
 This work utilizes the dataset from the 2018 Data Science Bowl Grand Challenges, which contains 735 images in total. Of the total image set, 650 images contain pixel-level annotation for training and the remaining 65 samples are unlabeled to be used in testing. From the training set, 80% of the samples are used for training and remaining 20% are used for validation. The numbers of training and validation samples are 536 and 134 respectively
 
-![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen17.png)
+![Image text](https://github.com/AIRInstitute/Gridiron/blob/main/images/Imagen17.png)
 
 
-![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen15.png)
+![Image text](https://github.com/AIRInstitute/Gridiron/blob/main/images/Imagen15.png)
 
 
 The Microscope interface allows to start with the cell viability. In this process, an user sets the Petri dish in the microscope, and starts the cell counting process.
@@ -205,7 +205,7 @@ When finishes, the output with the cell viability is given, allowing the scienti
 
 A custom developed software called DeepCAN Labeling App was used for labeling the data used to train the Cluster CNN and Viability CNN 
 
-![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen16.png)
+![Image text](https://github.com/AIRInstitute/Gridiron/blob/main/images/Imagen16.png)
 
 
  
@@ -214,13 +214,13 @@ From the number of cells dyed blue due to dye entry, the percentage of viability
 	Percentage of viability% = 100 x [1 - number of dead cells (blue) / number of cells measured]
 Ensuring an good cell detecction translates into a more accurate cell viability, optimizing resources for the remaining process.
 
-![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen18.png)
+![Image text](https://github.com/AIRInstitute/Gridiron/blob/main/images/Imagen18.png)
 
 
-![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen19.png)
+![Image text](https://github.com/AIRInstitute/Gridiron/blob/main/images/Imagen19.png)
 
 
-![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/Imagen20.png)
+![Image text](https://github.com/AIRInstitute/Gridiron/blob/main/images/Imagen20.png)
 <!-- ## Contributing
 
 PRs accepted. -->
