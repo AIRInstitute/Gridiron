@@ -216,9 +216,36 @@ Ensuring an good cell detecction translates into a more accurate cell viability,
 
 ![Image text](https://github.com/AIRInstitute/Gridiron/blob/main/images/Imagen18.png)
 
+## Technical details 
+
+### Architecture
+In the following image you can see the different components and technologies, as well as the relationship of each one of them.
+![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/arch.png)
+
+
+### Cell Viability
+The user clicks a button on the interface. This command goes to the microscope through the next components: main backend, orion context broker and fiware iot json agent; to finally reach the microscope. The microscope sends the image to the backendAI, which processes the image by calculating the number of cells in the image. Once this is done the backendAI sends that information to orion to be historicized in the crateDB through quantum leap and also sends it to the node.js server so that it sends it to the interface through a socket.
+
+![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/cv.png)
+
+
+### Liquid Handling
+The operation is similar to the previous case, only that the pipette robot sends the result of the execution back to the fiware iot json agent and this updates the orion entity with this information. Orion is the one that sends the information to the socket through a subscription so that the user can see it in the interface.
+
+![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/lh.png)
+
+
+### Fiware Entities
+
+This section discusses the entities that our fiware agent will use. These are in charge of transmitting information between the laboratory apparatus and our application, one of them being in charge of the microscope and the robotic arm in charge of handling the pipettes.
+
+This agent is launched in a docker container on our machine called iotagent-json and another container called orion.
+
+• We have the entity in charge of transmitting the protocols to the robotic arm so that it can execute them. 
 
 ![Image text](https://github.com/AIRInstitute/Gridiron/blob/main/images/Imagen19.png)
 
+• we have the entity in charge of obtaining the images from the microscope and processing them, counting the cells, both the images with and without Trypan Blue solution and returning the number of live or dead cells and the total. 
 
 ![Image text](https://github.com/AIRInstitute/Gridiron/blob/main/images/Imagen20.png)
 <!-- ## Contributing
