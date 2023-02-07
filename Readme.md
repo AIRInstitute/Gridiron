@@ -220,19 +220,19 @@ Ensuring an good cell detecction translates into a more accurate cell viability,
 
 ### Architecture
 In the following image you can see the different components and technologies, as well as the relationship of each one of them.
-![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/arch.png)
+![Image text](https://github.com/AIRInstitute/Gridiron/blob/main/images/arch.png)
 
 
 ### Cell Viability
 The user clicks a button on the interface. This command goes to the microscope through the next components: main backend, orion context broker and fiware iot json agent; to finally reach the microscope. The microscope sends the image to the backendAI, which processes the image by calculating the number of cells in the image. Once this is done the backendAI sends that information to orion to be historicized in the crateDB through quantum leap and also sends it to the node.js server so that it sends it to the interface through a socket.
 
-![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/cv.png)
+![Image text](https://github.com/AIRInstitute/Gridiron/blob/main/images/cv.png)
 
 
 ### Liquid Handling
 The operation is similar to the previous case, only that the pipette robot sends the result of the execution back to the fiware iot json agent and this updates the orion entity with this information. Orion is the one that sends the information to the socket through a subscription so that the user can see it in the interface.
 
-![Image text](https://github.com/AIRInstitute/Gridiron-DIH2/blob/master/imagenes/lh.png)
+![Image text](https://github.com/AIRInstitute/Gridiron/blob/main/images/lh.png)
 
 
 ### Fiware Entities
