@@ -38,6 +38,34 @@ pip install -r requirements.txt
 ```
 python __init__.py
 ```
+
+Now we will launch our pipette api, for this we will follow the same steps wue follow to launh our microscope api:
+
+•	Open the .env file in the "/pipetteAPI" folder and modify the IP addresses by the corresponding ones for our case.
+
+•	Open a powershell terminal.
+
+•	In the terminal open the folder "pipetteAPI".
+
+•	Once inside we are going to enter the following command to create a python virtual environment 
+```
+python –m venv venv
+```
+•	When the command is finished executing, enter the following command to use the virtual enviroment: 
+```
+./venv/Scripts/Activate.ps1
+```
+•	Once finished executing the command, we are going to install the necessary libraries inside the environment with the command 
+```
+pip install -r requirements.txt
+```
+ (before doing this command we must be in the directory where the requirements.txt file is located).
+•	Now we go into the "src" folder and enter the following command 
+```
+python flask_app.py
+```
+
+### DEPRECATED
 Now we will create the image and the container of the pipette api, for this we will follow the next steps:
 
 •	Open the .env file in the "pipetteAPI/src" folder and modify the IP addresses by the corresponding ones for our case.
@@ -47,6 +75,10 @@ Now we will create the image and the container of the pipette api, for this we w
 •	In the terminal we navigate to the folder "pipetteAPI".
 
 •	Once inside we introduce the following command: 
+
+ (before doing this command we must be in the directory where the requirements.txt file is located).
+•	Now we go into the "src" folder and enter the following command 
+
 ```
 docker build -t pipetteapi ./
 ```
@@ -58,6 +90,8 @@ docker-compose -f docker-compose.yml up -d
 ```
 docker ps
 ```
+### END DEPRECATED
+
 and check that the container is running correctly.
 
 Now we will launch the rest of the components that can be launched either on the same machine as the previous components or on a remote machine:
