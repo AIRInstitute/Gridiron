@@ -282,12 +282,15 @@ This agent is launched in a docker container on our machine called iotagent-json
 • we have the entity in charge of obtaining the images from the microscope and processing them, counting the cells, both the images with and without Trypan Blue solution and returning the number of live or dead cells and the total. 
 
 ![Image text](https://github.com/AIRInstitute/Gridiron/blob/main/images/Imagen20.png)
-<!-- ## Contributing
 
 ## Example of Use
 
 Gridiron Counting: https://youtu.be/fL9_R9wb-JE
 Gridiron Pipetting: https://youtu.be/ep6gJVf1mu4
+
+
+<!-- ## Contributing
+
 
 PRs accepted. -->
 
