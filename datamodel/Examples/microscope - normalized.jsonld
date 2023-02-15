@@ -1,0 +1,125 @@
+{
+    "id":"urn:ngsi-ld:microscope",
+    "type":"MicroscopeProcess",
+    "focus":{
+        "type":"Number",
+        "value":0.5,
+        "metadata":{
+            "description":{
+                "type":"Text",
+                "value":"Set the focus of the microscope, the range is between 0 and 1 {0.0 and 1.0 are valid entries}"
+            }
+        }     
+    },
+    "temperature":{
+        "type":"Number",
+        "value":0,
+        "metadata":{
+            "description":{
+                "type":"Text",
+                "value":"The temperature of the device in celsius"
+            }
+        }       
+    },
+    "destinyURLWithLiquid":{
+        "type":"Text",
+        "value":"0.0.0.0:5000/ejemplo",
+        "metadata":{
+            "description":{
+                "type":"Text",
+                "value":"the url where the images taken before liquid with the microscope have to be send"
+            }
+        }
+    },
+    "destinyURLWithoutLiquid":{
+        "type":"Text",
+        "value":"0.0.0.0:5000/ejemplo",
+        "metadata":{
+            "description":{
+                "type":"Text",
+                "value":"the url where the images taken after liquid with the microscope have to be send"
+            }
+        }
+    },
+    "pathImageWithoutLiquid":{
+        "type":"Text",
+        "value":"0.0.0.0:5000/ejemplo",
+        "metadata":{
+            "description":{
+                "type":"Text",
+                "value":"The path where the image without liquid is saved"
+            }
+        }
+    },
+    "pathImageWithLiquid":{
+        "type":"Text",
+        "value":"0.0.0.0:5000/ejemplo",
+        "metadata":{
+            "description":{
+                "type":"Text",
+                "value":"The path where the image with liquid is saved"
+            }
+        }
+    },
+    "zoom":{
+        "type":"Text",
+        "value":"IN",
+        "metadata":{
+            "description":{
+                "type":"Text",
+                "value":"Change the zoom mode of the microscope. There are 2 zoom modes: {IN} and {OUT}. While zoomed in the resolution is higher but the ROI is smaller, zoomed out has a higher ROI but a lower resolution."
+            }
+        }
+    },
+    "getImageWithLiquid":{
+        "type":"Boolean",
+        "value":"True",
+        "metadata":{
+            "description":{
+                "type":"Text",
+                "value":"The microscope will take and image everytime this value its updated in orion for count the number of live cells"
+            }
+        }
+    },
+    "getImageWithoutLiquid":{
+        "type":"Boolean",
+        "value":"True",
+        "metadata":{
+            "description":{
+                "type":"Text",
+                "value":"The microscope will take and image everytime this value its updated in orion for count the total number of cells"
+            }
+        }
+    },
+    "liveCells":{
+        "type":"Number",
+        "value":0,
+        "metadata":{
+            "description":{
+                "type":"Text",
+                "value":"The number of live cells counted by the backendAI"
+            }
+        }
+    },
+    "Cells":{
+        "type":"Number",
+        "value":0,
+        "metadata":{
+            "description":{
+                "type":"Text",
+                "value":"The number of cells {death or alive} counted by the backendAI"
+            }
+        }
+    },
+    "cellsViability":{
+        "type":"Float",
+        "value":0,
+        "metadata":{
+            "description":{
+                "type":"Text",
+                "value":"Viability of the cells {{number of live cells/total number of cells}x100}"
+            }
+        }
+    }
+    
+}

@@ -1,0 +1,120 @@
+{
+    "devices": [
+      {
+              "device_id": "pipetteActuator",
+              "service": "openiot",
+              "service_path": "/",
+              "entity_name": "urn:ngsi-ld:pipetteActuator",
+              "entity_type": "pipette",
+              "endpoint": "http://{{hostPipettaAPI}}:{{portPipettaAPI}}/start_protocol",
+              "polling": true,
+              "transport": "HTTP",
+              "attributes": [
+                  {
+                      "object_id": "intervalFirstTransfer",
+                      "name": "intervalFirstTransfer",
+                      "type": "Float"
+                  },
+                  {
+                      "object_id": "intervalProcess",
+                      "name": "intervalProcess",
+                      "type": "Float"
+                  },
+                  {
+                      "object_id": "intervalSetup",
+                      "name": "intervalSetup",
+                      "type": "Float"
+                  },
+                  {
+                      "object_id": "intervalTransfer",
+                      "name": "intervalTransfer",
+                      "type": "Float"
+                  },
+                  {
+                      "object_id": "n_cuvettes",
+                      "name": "n_cuvettes",
+                      "type": "Integer"
+                  },
+                  {
+                      "object_id": "n_eppendorfs",
+                      "name": "n_eppendorfs",
+                      "type": "Integer"
+                  },
+                  {
+                      "object_id": "n_falcons_15ml",
+                      "name": "n_falcons_15ml",
+                      "type": "Integer"
+                  },
+                  {
+                      "object_id": "n_falcons_50ml",
+                      "name": "n_falcons_50ml",
+                      "type": "Integer"
+                  },
+                  {
+                      "object_id": "n_wellplates",
+                      "name": "n_wellplates",
+                      "type": "Integer"
+                  },
+                  {
+                      "object_id": "protocol",
+                      "name": "protocol",
+                      "type": "Integer"
+                  },
+                  {
+                      "object_id": "starting_v_falcon",
+                      "name": "starting_v_falcon",
+                      "type": "Integer"
+                  },
+                  {
+                      "object_id": "starting_v_falcon_B4",
+                      "name": "starting_v_falcon_B4",
+                      "type": "Integer"
+                  },
+                  {
+                      "object_id": "timeFirstTransfeStart",
+                      "name": "timeFirstTransfeStart",
+                      "type": "DateTime"
+                  },
+                  {
+                      "object_id": "timeFirstTransferEnd",
+                      "name": "timeFirstTransferEnd",
+                      "type": "DateTime"
+                  },
+                  {
+                      "object_id": "timeStart",
+                      "name": "timeStart",
+                      "type": "DateTime"
+                  },
+                  {
+                      "object_id": "volume_e",
+                      "name": "volume_e",
+                      "type": "Float"
+                  },
+                  {
+                      "object_id": "volume_falcons",
+                      "name": "volume_falcons",
+                      "type": "Array"
+                  },
+                  {
+                      "object_id": "executeProtocol",
+                      "name": "executeProtocol",
+                      "type": "Number"
+                  }
+              ],
+              "lazy": [],
+              "commands": [
+                  {"name": "protocol1", "type": "command"},
+                  {"name": "protocol2", "type": "command"},
+                  {"name": "protocol3", "type": "command"},
+                  {"name": "protocol4", "type": "command"},
+                  {"name": "protocol5", "type": "command"},
+                  {"name": "protocol6", "type": "command"}
+              ],
+              "static_attributes": [
+              ],
+              "expressionLanguage": "jexl",
+              "explicitAttrs": false
+          }
+    ]
+  }
+  
