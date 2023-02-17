@@ -1,134 +1,94 @@
 {
   "$schema": "http://json-schema.org/schema",
   "$schemaVersion": "0.0.1",
-  "$id": "https://smart-data-models.github.io/dataModel.CellCounter/schema.json",
-  "title": "Smart Data models -Cells Count / Pipette use",
-  "definitions": {
-    "EntityIdentifierType": {
-      "microscope": {
-        "type": "MicroscopeProcess",
+  "$id": "https://smart-data-models.github.io/dataModel.CellCounter/MicroscopeCellsCount/schema.json",
+  "title": "Smart Data models - Biology / Cell Counter\"",
+  "modelTags": "\"\"",
+  "description": "A cell counter from images taken from a digital microscope.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
         "focus": {
           "type": "number",
-          "value": "0.5",
-          "metadata": {
-            "description": {
-              "type": "text",
-              "value": "Set the focus of the microscope, the range is between 0 and 1 {0.0 and 1.0 are valid entries}"
-            }
-          }
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Property. Model:'https://schema.org/Number'. Set the focus of the microscope, the range is between 0 and 1."
         },
         "temperature": {
           "type": "number",
-          "value": "0",
-          "metadata": {
-            "description": {
-              "type": "Text",
-              "value": "The temperature of the device in celsius"
-            }
-          }
+          "description": "Property. Model:'https://schema.org/Number'. The temperature of the device in celsius."
         },
         "destinyURLWithLiquid": {
-          "type": "Text",
-          "value": "localhost:5000/example",
-          "metadata": {
-            "description": {
-              "type": "Text",
-              "value": "the url where the images taken after liquid with the microscope have to be send"
-            }
+          "type": "array",
+          "description": "Property. Model:'https://schema.org/Text'. The url where the images taken after liquid with the microscope have to be send",
+          "items": {
+            "type": "string",
+            "minitems": 1
           }
         },
-        "": {},
         "destinyURLWithoutLiquid": {
-          "type": "Text",
-          "value": "localhost:5000/example",
-          "metadata": {
-            "description": {
-              "type": "Text",
-              "value": "the url where the images taken before liquid with the microscope have to be send"
-            }
+          "type": "array",
+          "description": "Property. Model:'https://schema.org/Text'. The url where the images taken before liquid with the microscope have to be send",
+          "items": {
+            "type": "string",
+            "minitems": 1
           }
         },
         "pathImageWithoutLiquid": {
-          "type": "Text",
-          "value": "localhost:5000/example",
-          "metadata": {
-            "description": {
-              "type": "Text",
-              "value": "The path where the image without liquid is saved"
-            }
+          "type": "array",
+          "description": "Property. Model:'https://schema.org/Text'. The path where the image without liquid is saved.",
+          "items": {
+            "type": "string",
+            "minitems": 1
           }
         },
         "pathImageWithLiquid": {
-          "type": "Text",
-          "value": "localhost:5000/example",
-          "metadata": {
-            "description": {
-              "type": "Text",
-              "value": "The path where the image with liquid is saved"
-            }
+          "type": "array",
+          "description": "Property. Model:'https://schema.org/Text'. The path where the image with liquid is saved",
+          "items": {
+            "type": "string",
+            "minitems": 1
           }
         },
         "zoom": {
-          "type": "Text",
-          "value": "IN",
-          "metadata": {
-            "description": {
-              "type": "Text",
-              "value": "Change the zoom mode of the microscope. There are 2 zoom modes: {IN} and {OUT}. While zoomed in the resolution is higher but the ROI is smaller, zoomed out has a higher ROI but a lower resolution."
-            }
-          }
+          "type": "string",
+          "description": "Property. Model:'https://schema.org/Text'. Change the zoom mode of the microscope. There are 2 zoom modes: {IN} and {OUT}. While zoomed in the resolution is higher but the ROI is smaller, zoomed out has a higher ROI but a lower resolution."
         },
         "getImageWithLiquid": {
-          "type": "Boolean",
-          "value": "True",
-          "metadata": {
-            "description": {
-              "type": "Text",
-              "value": "The microscope will take and image everytime this value its updated in orion for count the number of live cells"
-            }
-          }
+          "type": "boolean",
+          "description": "Property. Model:'https://schema.org/Boolean'. The microscope will take and image everytime this value its updated in orion for count the number of live cells"
         },
         "getImageWithoutLiquid": {
-          "type": "Boolean",
-          "value": "True",
-          "metadata": {
-            "description": {
-              "type": "Text",
-              "value": "The microscope will take and image everytime this value its updated in orion for count the total number of cells"
-            }
-          }
+          "type": "boolean",
+          "description": "Property. Model:'https://schema.org/Boolean'. The microscope will take and image everytime this value its updated in orion for count the total number of cells"
         },
         "liveCells": {
-          "type": "Number",
-          "value": "0",
-          "metadata": {
-            "description": {
-              "type": "Text",
-              "value": "The number of live cells counted by the backendAI"
-            }
-          }
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. The number of live cells counted."
         },
         "Cells": {
-          "type": "Number",
-          "value": "0",
-          "metadata": {
-            "description": {
-              "type": "Text",
-              "value": "The number of cells {death or alive} counted by the backendAI"
-            }
-          }
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. The number of cells {death or alive} counted."
         },
         "cellsViability": {
-          "type": "Float",
-          "value": "0",
-          "metadata": {
-            "description": {
-              "type": "Text",
-              "value": "Viability of the cells {{number of live cells/total number of cells}x100}"
-            }
-          }
+          "type": "number",
+          "minimum": 0,
+          "description": "Property. Model:'https://schema.org/Number'. Viability of the cells {{number of live cells/total number of cells}x100}."
         }
       }
     }
-  }
+  ],
+  "required": [
+    "id",
+    "type"
+  ]
 }

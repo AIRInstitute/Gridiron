@@ -56,16 +56,16 @@ def countNumberOfCellsInImage(model, image):
 
 
     
-    print('Llego aqui 1')
+    # print('Llego aqui 1')
     img_real = cv2.resize(image,(256,256))
-    print('Llego aqui 2')
+    # print('Llego aqui 2')
     segCells=model.predict(np.expand_dims(img_real, axis = 0), batch_size=None, verbose=0, steps=None, callbacks=None)
-    print('Llego aqui 3')
+    # print('Llego aqui 3')
 
 
     numberOfCells = numCells(segCells,minimum_area= 1,average_cell_area= 250,connected_cell_area = 100) #En esta linea sustituir el model.predict por model. cual sea el metodo que se usa para contar el numero de celulas en una imagen (model es el modelo ya entreando)
 
-    print('Llego aqui 4')
+    # print('Llego aqui 4')
 
     return numberOfCells
 
