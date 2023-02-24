@@ -285,10 +285,10 @@ This agent is launched in a docker container on our machine called iotagent-json
 
 ## Example of Use
 
-Gridiron Counting: https://youtu.be/fL9_R9wb-JE
+Gridiron Counting: [https://youtu.be/fL9_R9wb-JE](https://youtu.be/fL9_R9wb-JE)
 
 
-Gridiron Pipetting: https://youtu.be/ep6gJVf1mu4
+Gridiron Pipetting: [https://youtu.be/ep6gJVf1mu4](https://youtu.be/kBMSAhmf8nU)
 
 
 <!-- ## Contributing
