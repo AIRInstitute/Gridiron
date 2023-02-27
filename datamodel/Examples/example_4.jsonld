@@ -1,0 +1,17 @@
+{
+    "id":"urn:ngsi-ld:microscope",
+    "type":"MicroscopeProcess",
+    "focus":1.0,
+    "temperature":20,
+    "destinyURLWithLiquid":[""],
+    "destinyURLWithoutLiquid":["http://212.128.140.209:5000/microscope/getImageWithoutLiquid"],
+    "pathImageWithoutLiquid":["http://212.128.140.209:5000/microscope/getImageWithoutLiquid"],
+    "pathImageWithLiquid":[""],
+    "zoom":"OUT",
+    "getImageWithLiquid":false,
+    "getImageWithoutLiquid":true,
+    "liveCells":0,
+    "cells":148,
+    "cellsViability":0
+    
+}

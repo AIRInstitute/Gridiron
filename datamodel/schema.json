@@ -74,7 +74,7 @@
           "minimum": 0,
           "description": "Property. Model:'https://schema.org/Number'. The number of live cells counted."
         },
-        "Cells": {
+        "cells": {
           "type": "number",
           "minimum": 0,
           "description": "Property. Model:'https://schema.org/Number'. The number of cells {death or alive} counted."
@@ -82,6 +82,7 @@
         "cellsViability": {
           "type": "number",
           "minimum": 0,
+          "maximum": 1,
           "description": "Property. Model:'https://schema.org/Number'. Viability of the cells {{number of live cells/total number of cells}x100}."
         }
       }
