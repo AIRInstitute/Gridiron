@@ -290,7 +290,9 @@ Gridiron Counting: [https://youtu.be/fL9_R9wb-JE](https://youtu.be/fL9_R9wb-JE)
 
 Gridiron Pipetting: [https://youtu.be/ep6gJVf1mu4](https://youtu.be/kBMSAhmf8nU)
 
+## Deploy tutoria
 
+Tutorial: [https://youtu.be/c4kLxbt9Jag](https://youtu.be/c4kLxbt9Jag)
 <!-- ## Contributing
 
 
